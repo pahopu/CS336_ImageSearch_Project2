@@ -6,7 +6,7 @@ from PIL import Image
 from tqdm import tqdm
 from pathlib import Path
 from pickle import dump, load
-from scipy.stats import cosine
+from scipy.spatial.distance import cosine
 
 
 class ImageSearch_System:
@@ -24,7 +24,7 @@ class ImageSearch_System:
 
         # Create dataset folder path --> contains dataset
         # If not exist, create a new folder
-        self.dataset_folder_path = Path('dataset') / dataset_name
+        self.dataset_folder_path = Path('datasets') / dataset_name
         if not self.dataset_folder_path.exists():
             self.dataset_folder_path.mkdir()
 
@@ -76,9 +76,12 @@ class ImageSearch_System:
             dump(features, features_file)
             dump(image_paths, image_paths_file)
 
-    def retrieve_image(self, image_path, K=16) -> tuple:
+    def retrieve_image(self, image_name, K=16) -> tuple:
         # Start counting time
         start = time.time()
+
+        # Create image path
+        image_path = self.images_folder_path / image_name
 
         # Get features file path and image paths file path
         features_file_path = self.method_folder_path / 'features.pkl'
@@ -119,3 +122,6 @@ class ImageSearch_System:
 if __name__ == '__main__':
     IS = ImageSearch_System()
     IS.indexing()
+    rel_img, time = IS.retrieve_image('all_souls_000099.jpg')
+    print(rel_img)
+    print(time)
