@@ -22,35 +22,41 @@ class ImageSearch_System:
         # Save method name
         self.method = method
 
-        # Create dataset folder path --> contains dataset
+        # Create datasets folder path --> contains dataset
         # If not exist, create a new folder
-        self.dataset_folder_path = Path('datasets') / dataset_name
-        if not self.dataset_folder_path.exists():
-            self.dataset_folder_path.mkdir()
+        self.datasets_folder_path = Path('datasets') / dataset_name
+        if not self.datasets_folder_path.exists():
+            self.datasets_folder_path.mkdir()
 
         # Create images folder path --> contains images of dataset
         # If not exist, create a new folder
-        self.images_folder_path = self.dataset_folder_path / 'images'
+        self.images_folder_path = self.datasets_folder_path / 'images'
         if not self.images_folder_path.exists():
             self.images_folder_path.mkdir()
 
         # Create binary folder path --> contains binary files about features and image paths
         # If not exist, create a new folder
-        self.binary_folder_path = self.dataset_folder_path / 'binary'
+        self.binary_folder_path = self.datasets_folder_path / 'binary'
         if not self.binary_folder_path.exists():
             self.binary_folder_path.mkdir()
 
-        # Create method folder path --> contains binary files of corresponding feature extractor
+        # Create methods folder path --> contains binary files of corresponding feature extractor
         # If not exist, create a new folder
-        self.method_folder_path = self.binary_folder_path / self.method
-        if not self.method_folder_path.exists():
-            self.method_folder_path.mkdir()
+        self.methods_folder_path = self.binary_folder_path / self.method
+        if not self.methods_folder_path.exists():
+            self.methods_folder_path.mkdir()
+
+        # Create ground truth folder path --> contains files for evaluating
+        # If not exist, create a new folder
+        self.groundtruth_folder_path = self.datasets_folder_path / 'groundtruth'
+        if not self.groundtruth_folder_path.exists():
+            self.groundtruth_folder_path.mkdir()
 
     def indexing(self) -> None:
         # Create features file path and image paths file path
         # If not exist, create new files
-        features_file_path = self.method_folder_path / 'features.pkl'
-        image_paths_file_path = self.method_folder_path / 'images.pkl'
+        features_file_path = self.methods_folder_path / 'features.pkl'
+        image_paths_file_path = self.methods_folder_path / 'images.pkl'
 
         if not features_file_path.exists() and not image_paths_file_path.exists():
             # Create features list and image paths list
@@ -84,8 +90,8 @@ class ImageSearch_System:
         image_path = self.images_folder_path / image_name
 
         # Get features file path and image paths file path
-        features_file_path = self.method_folder_path / 'features.pkl'
-        image_paths_file_path = self.method_folder_path / 'images.pkl'
+        features_file_path = self.methods_folder_path / 'features.pkl'
+        image_paths_file_path = self.methods_folder_path / 'images.pkl'
 
         # Open features file and image paths file to read
         features_file = open(features_file_path, 'rb')
@@ -113,7 +119,7 @@ class ImageSearch_System:
         ranked = [(image_paths[id], scores[id]) for id in topk_ids]
 
         # End counting time
-        end = time.time()   
+        end = time.time()
 
         # Return top K relevant images and query time
         return ranked, end - start
