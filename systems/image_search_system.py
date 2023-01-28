@@ -129,7 +129,7 @@ class ImageSearch_System:
         # Open query image with OpenCV
         query_image = cv.imread(image_path)
 
-        # Display query image and wait
+        # Display query image and wait until close image
         cv.imshow('Query Image', query_image)
         cv.waitKey(0)
 
@@ -151,7 +151,7 @@ class ImageSearch_System:
             # Print rank and name of image
             print(f'{(id + 1):3d}. {image_path.stem}.jpg')
 
-            # Wait
+            # Wait until close image
             cv.waitKey(0)
 
         print('-' * 41)
@@ -161,7 +161,13 @@ class ImageSearch_System:
 
 
 if __name__ == '__main__':
-    IS = ImageSearch_System()
+    # Name of dataset and method
+    dataset_name = 'oxbuild'
+    method = 'Xception'
 
-    image_path = 'datasets/oxbuild/images/all_souls_000002.jpg'
-    IS.retrieve_image_and_print(image_path)
+    # Create Image Search System object
+    IS = ImageSearch_System(dataset_name, method)
+
+    # Retrieve and print relevant images based on query image path
+    query_image_path = 'datasets/oxbuild/images/all_souls_000002.jpg'
+    IS.retrieve_image_and_print(query_image_path)
