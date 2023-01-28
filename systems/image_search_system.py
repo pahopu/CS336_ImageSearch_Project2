@@ -1,4 +1,5 @@
 import time
+import cv2 as cv
 import numpy as np
 import feature_extractor as fe
 
@@ -82,12 +83,9 @@ class ImageSearch_System:
             dump(features, features_file)
             dump(image_paths, image_paths_file)
 
-    def retrieve_image(self, image_name, K=16) -> tuple:
+    def retrieve_image(self, image_path, K=16) -> tuple:
         # Start counting time
         start = time.time()
-
-        # Create image path
-        image_path = self.images_folder_path / image_name
 
         # Get features file path and image paths file path
         features_file_path = self.methods_folder_path / 'features.pkl'
@@ -104,7 +102,7 @@ class ImageSearch_System:
         query_image = Image.open(image_path)  # Open query image at image path
         query_feature = self.feature_extractor.extract(query_image)  # Extract query feature from query image
 
-        # Create scores list contains cosine similarity between 
+        # Create scores list contains cosine similarity between
         # Query feature and each feature in features list
         scores = []
         for feature in features:
@@ -124,10 +122,40 @@ class ImageSearch_System:
         # Return top K relevant images and query time
         return ranked, end - start
 
+    def retrieve_image_and_print(self, image_path, K=16) -> None:
+        # Retrieve image and get result, query time
+        rel_imgs, query_time = self.retrieve_image(image_path, K)
+
+        # Open query image with OpenCV
+        query_image = cv.imread(image_path)
+
+        # Display query image and wait
+        cv.imshow('Query Image', query_image)
+        cv.waitKey(10)
+
+        print('-' * 10 + ' RELEVANT IMAGES ' + '-' * 10)
+
+        # Browse each image in relevant images
+        for id, (image_path, score) in enumerate(rel_imgs):
+            # Open image from image path
+            rel_img = cv.imread(str(image_path))
+
+            # Display image
+            cv.imshow(f'Relevant Image {id + 1}', rel_img)
+
+            # Print rank and name of image
+            print(f'{(id + 1):3d}. {image_path.stem}.jpg')
+
+            # Wait
+            cv.waitKey(10)
+
+        print('-' * 37)
+
+        print(f'Query Time = {query_time:2.2f} seconds.')
+
 
 if __name__ == '__main__':
     IS = ImageSearch_System()
-    IS.indexing()
-    rel_img, time = IS.retrieve_image('all_souls_000099.jpg')
-    print(rel_img)
-    print(time)
+
+    image_path = 'datasets/oxbuild/images/all_souls_000002.jpg'
+    IS.retrieve_image_and_print(image_path)
