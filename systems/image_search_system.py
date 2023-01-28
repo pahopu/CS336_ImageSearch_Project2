@@ -131,9 +131,14 @@ class ImageSearch_System:
 
         # Display query image and wait
         cv.imshow('Query Image', query_image)
-        cv.waitKey(10)
+        cv.waitKey(0)
 
-        print('-' * 10 + ' RELEVANT IMAGES ' + '-' * 10)
+        # Print name of query image
+        print('\n' + '-' * 12 + ' RETRIEVE IMAGE ' + '-' * 13)
+        print(f'Query Image: {Path(image_path).stem}.jpg')
+
+        # Print name and rank of relevant images
+        print('-' * 10 + f' {K:3d} RELEVANT IMAGES ' + '-' * 10)
 
         # Browse each image in relevant images
         for id, (image_path, score) in enumerate(rel_imgs):
@@ -147,11 +152,12 @@ class ImageSearch_System:
             print(f'{(id + 1):3d}. {image_path.stem}.jpg')
 
             # Wait
-            cv.waitKey(10)
+            cv.waitKey(0)
 
-        print('-' * 37)
+        print('-' * 41)
 
-        print(f'Query Time = {query_time:2.2f} seconds.')
+        # Print query time
+        print(f'Query Time = {query_time:2.2f} seconds.\n')
 
 
 if __name__ == '__main__':
