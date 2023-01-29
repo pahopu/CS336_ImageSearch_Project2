@@ -130,7 +130,7 @@ class ImageSearch_System:
         query_image = cv.imread(image_path)
 
         # Display query image and wait until close image
-        cv.imshow('Query Image', query_image)
+        cv.imshow(f'Query Image: {Path(image_path).stem}.jpg', query_image)
         cv.waitKey(0)
 
         # Print name of query image
@@ -146,7 +146,7 @@ class ImageSearch_System:
             rel_img = cv.imread(str(image_path))
 
             # Display image
-            cv.imshow(f'Relevant Image {id + 1}', rel_img)
+            cv.imshow(f'Relevant Image {id + 1}: {image_path.stem}.jpg', rel_img)
 
             # Print rank and name of image
             print(f'{(id + 1):3d}. {image_path.stem}.jpg')
@@ -169,5 +169,5 @@ if __name__ == '__main__':
     IS = ImageSearch_System(dataset_name, method)
 
     # Retrieve and print relevant images based on query image path
-    query_image_path = 'datasets/oxbuild/images/all_souls_000002.jpg'
+    query_image_path = 'datasets/oxbuild/images/all_souls_000000.jpg'
     IS.retrieve_image_and_print(query_image_path)
