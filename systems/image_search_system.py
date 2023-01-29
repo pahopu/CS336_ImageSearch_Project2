@@ -131,14 +131,14 @@ class ImageSearch_System:
         query_image_name = None
 
         if isinstance(query_image, str):  # If query image is a path (string type)
-            query_image_name = Path(query_image).stem # Assign name of query image based on path
+            query_image_name = Path(query_image).stem  # Assign name of query image based on path
             query_image = cv.imread(query_image)  # Open query image with OpenCV
 
-        if isinstance(query_image, Image.Image): # If query image is a subclass of Image
+        if isinstance(query_image, Image.Image):  # If query image is a subclass of Image
             # If name of query image is None, assign to 'No name'
             # Else keep the saved name
             query_image_name = 'No name' if query_image_name is None else query_image_name
-            query_image = np.array(query_image) # Convert query image to np.array
+            query_image = np.array(query_image)  # Convert query image to np.array
 
         # Display query image and wait until close image
         cv.imshow(f'Query Image name: {query_image_name}', query_image)
@@ -180,7 +180,7 @@ if __name__ == '__main__':
     IS = ImageSearch_System(dataset_name, method)
 
     # Retrieve and print relevant images based on query image path or query image
-    query_image_path = 'datasets/oxbuild/images/all_souls_000000.jpg' # Query image path
-    query_image = Image.open(query_image_path) # Query image
+    query_image_path = 'datasets/oxbuild/images/all_souls_000000.jpg'  # Query image path
+    query_image = Image.open(query_image_path)  # Query image
 
-    IS.retrieve_image_and_print(query_image_path) # Retrieve and print results
+    IS.retrieve_image_and_print(query_image_path)  # Retrieve and print results
