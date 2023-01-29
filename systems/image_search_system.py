@@ -83,7 +83,7 @@ class ImageSearch_System:
             dump(features, features_file)
             dump(image_paths, image_paths_file)
 
-    def retrieve_image(self, image_path, K=16) -> tuple:
+    def retrieve_image(self, query_image, K=16) -> tuple:
         # Start counting time
         start = time.time()
 
@@ -99,7 +99,8 @@ class ImageSearch_System:
         features = load(features_file)
         image_paths = load(image_paths_file)
 
-        query_image = Image.open(image_path)  # Open query image at image path
+        if isinstance(query_image, str):  # If query image is a path (string type)
+            query_image = Image.open(query_image)  # Open query image at image path
         query_feature = self.feature_extractor.extract(query_image)  # Extract query feature from query image
 
         # Create scores list contains cosine similarity between
@@ -122,34 +123,44 @@ class ImageSearch_System:
         # Return top K relevant images and query time
         return ranked, end - start
 
-    def retrieve_image_and_print(self, image_path, K=16) -> None:
+    def retrieve_image_and_print(self, query_image, K=16) -> None:
         # Retrieve image and get result, query time
-        rel_imgs, query_time = self.retrieve_image(image_path, K)
+        rel_imgs, query_time = self.retrieve_image(query_image, K)
 
-        # Open query image with OpenCV
-        query_image = cv.imread(image_path)
+        # Assign name of query image is None
+        query_image_name = None
+
+        if isinstance(query_image, str):  # If query image is a path (string type)
+            query_image_name = Path(query_image).stem # Assign name of query image based on path
+            query_image = cv.imread(query_image)  # Open query image with OpenCV
+
+        if isinstance(query_image, Image.Image): # If query image is a subclass of Image
+            # If name of query image is None, assign to 'No name'
+            # Else keep the saved name
+            query_image_name = 'No name' if query_image_name is None else query_image_name
+            query_image = np.array(query_image) # Convert query image to np.array
 
         # Display query image and wait until close image
-        cv.imshow(f'Query Image: {Path(image_path).stem}.jpg', query_image)
+        cv.imshow(f'Query Image name: {query_image_name}', query_image)
         cv.waitKey(0)
 
         # Print name of query image
         print('\n' + '-' * 12 + ' RETRIEVE IMAGE ' + '-' * 13)
-        print(f'Query Image: {Path(image_path).stem}.jpg')
+        print(f'Query Image name: {query_image_name}')
 
         # Print name and rank of relevant images
         print('-' * 10 + f' {K:3d} RELEVANT IMAGES ' + '-' * 10)
 
         # Browse each image in relevant images
-        for id, (image_path, score) in enumerate(rel_imgs):
+        for id, (image, score) in enumerate(rel_imgs):
             # Open image from image path
-            rel_img = cv.imread(str(image_path))
+            rel_img = cv.imread(str(image))
 
             # Display image
-            cv.imshow(f'Relevant Image {id + 1}: {image_path.stem}.jpg', rel_img)
+            cv.imshow(f'Relevant Image {id + 1}: {image.stem}', rel_img)
 
             # Print rank and name of image
-            print(f'{(id + 1):3d}. {image_path.stem}.jpg')
+            print(f'{(id + 1):3d}. {image.stem}')
 
             # Wait until close image
             cv.waitKey(0)
@@ -168,6 +179,8 @@ if __name__ == '__main__':
     # Create Image Search System object
     IS = ImageSearch_System(dataset_name, method)
 
-    # Retrieve and print relevant images based on query image path
-    query_image_path = 'datasets/oxbuild/images/all_souls_000000.jpg'
-    IS.retrieve_image_and_print(query_image_path)
+    # Retrieve and print relevant images based on query image path or query image
+    query_image_path = 'datasets/oxbuild/images/all_souls_000000.jpg' # Query image path
+    query_image = Image.open(query_image_path) # Query image
+
+    IS.retrieve_image_and_print(query_image_path) # Retrieve and print results
