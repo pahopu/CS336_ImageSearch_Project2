@@ -25,19 +25,19 @@ class ImageSearch_System:
 
         # Create datasets folder path --> contains dataset
         # If not exist, create a new folder
-        self.datasets_folder_path = Path('datasets') / dataset_name
-        if not self.datasets_folder_path.exists():
-            self.datasets_folder_path.mkdir()
+        self.dataset_folder_path = Path('datasets') / dataset_name
+        if not self.dataset_folder_path.exists():
+            self.dataset_folder_path.mkdir()
 
         # Create images folder path --> contains images of dataset
         # If not exist, create a new folder
-        self.images_folder_path = self.datasets_folder_path / 'images'
+        self.images_folder_path = self.dataset_folder_path / 'images'
         if not self.images_folder_path.exists():
             self.images_folder_path.mkdir()
 
         # Create binary folder path --> contains binary files about features and image paths
         # If not exist, create a new folder
-        self.binary_folder_path = self.datasets_folder_path / 'binary'
+        self.binary_folder_path = self.dataset_folder_path / 'binary'
         if not self.binary_folder_path.exists():
             self.binary_folder_path.mkdir()
 
@@ -49,7 +49,7 @@ class ImageSearch_System:
 
         # Create ground truth folder path --> contains files for evaluating
         # If not exist, create a new folder
-        self.groundtruth_folder_path = self.datasets_folder_path / 'groundtruth'
+        self.groundtruth_folder_path = self.dataset_folder_path / 'groundtruth'
         if not self.groundtruth_folder_path.exists():
             self.groundtruth_folder_path.mkdir()
 
@@ -170,17 +170,132 @@ class ImageSearch_System:
         # Print query time
         print(f'Query Time = {query_time:2.2f} seconds.\n')
 
+    def AP(self, predict, groundtruth, interpolated=False):
+        # Create precision, recall list
+        p = []
+        r = []
+        correct = 0  # Number of correct images
 
-if __name__ == '__main__':
-    # Name of dataset and method
-    dataset_name = 'oxbuild'
-    method = 'Xception'
+        # Browse each image in predict list
+        for id, (image, score) in enumerate(predict):
+            # If image in groundtruth
+            if image.stem in groundtruth:
+                correct += 1  # Increase number of correct images
+                p.append(correct / (id + 1))  # Add precision at this position
+                if interpolated:  # If interpolated AP
+                    r.append(correct / len(groundtruth))  # Add recall at this position
 
-    # Create Image Search System object
-    IS = ImageSearch_System(dataset_name, method)
+        if interpolated:  # If call interpolated AP
+            trec = []  # Calculate precision at 11 point of TREC
+            for R in range(11):  # Browse 11 point of recall from 0 to 1 with step 0.1
+                pm = []  # Create precision list to find max precision
+                for id, pr in enumerate(p):  # Browse each precision above
+                    if r[id] >= R / 10:  # If corresponding recall is greater than or equal to this point
+                        pm.append(pr)  # Add precision to precision list to find max
+                trec.append(max(pm) if len(pm) else 0)  # Add max precision at this point to trec
+            return np.mean(np.array(trec)) if len(trec) else 0  # Return interpolated AP
 
-    # Retrieve and print relevant images based on query image path or query image
-    query_image_path = 'datasets/oxbuild/images/all_souls_000000.jpg'  # Query image path
-    query_image = Image.open(query_image_path)  # Query image
+        return np.mean(np.array(p)) if len(p) else 0  # Return non - interpolated AP
 
-    IS.retrieve_image_and_print(query_image_path)  # Retrieve and print results
+    def evaluating(self):
+        # Create results folder path --> contains result file of evaluating
+        # If not exist, create a new folder
+        results_folder_path = self.dataset_folder_path / 'results'
+        if not results_folder_path.exists():
+            results_folder_path.mkdir()
+
+        # Create result file path --> save result of evaluating
+        # If exist, remove file
+        result_file_path = results_folder_path / f'evaluate_{self.method}.txt'
+        if result_file_path.exists():
+            result_file_path.unlink()
+
+        # Open result file at result file path to write
+        result_file = open(result_file_path, 'a')
+
+        # Write header line
+        result_file.write('-' * 20 + 'START EVALUATING' + '-' * 20 + '\n\n')
+
+        # Start counting time of evaluating
+        start = time.time()
+
+        # Get query files from groundtruth folder path
+        queries_file = sorted(self.groundtruth_folder_path.glob('*_query.txt'))
+
+        # Create list to save non - interpolated and interpolated APs
+        nAPs = []
+        iAPs = []
+
+        # Browse each query file in queries file
+        for id, query_file in enumerate(queries_file):
+            # Create groundtruth list
+            groundtruth = []
+
+            # Get groundtruth from file with 'good' result
+            with open(str(query_file).replace('query', 'good'), 'r') as groundtruth_file:
+                groundtruth.extend([line.strip() for line in groundtruth_file.readlines()])
+
+            # Get groundtruth from file with 'ok' result            
+            with open(str(query_file).replace('query', 'ok'), 'r') as groundtruth_file:
+                groundtruth.extend([line.strip() for line in groundtruth_file.readlines()])
+
+            # Get length of groundtruth
+            G = len(groundtruth)
+
+            # Open query file to read
+            with open(query_file, 'r') as query:
+                # Get content of query file
+                content = query.readline().strip().split()
+
+                # Get image path and coordinates of bounding box
+                image_name = content[0].replace('oxc1_', '') + '.jpg'
+                image_path = self.images_folder_path / image_name
+                bounding_box = tuple(float(coor) for coor in content[1:])
+
+                # Open query image and crop image based on bounding box
+                query_image = Image.open(image_path)
+                query_image = query_image.crop(bounding_box)
+
+                # Retrieve image and get relevant images, query time
+                rel_imgs, query_time = self.retrieve_image(query_image, G)
+
+                # Calculate non - interpolated and interpolated AP
+                nAP = self.AP(rel_imgs, groundtruth, interpolated=False)
+                iAP = self.AP(rel_imgs, groundtruth, interpolated=True)
+
+                # Add the AP values to the corresponding AP list
+                nAPs.append(nAP)
+                iAPs.append(iAP)
+
+            # Write id and name of query file
+            result_file.write(f'+ Query {(id + 1):2d}: {Path(query_file).stem}.txt\n')
+
+            # Write non - interpolated and interpolated AP
+            result_file.write(' ' * 12 + f'Non - Interpolated Average Precision = {nAP:.2f}\n')
+            result_file.write(' ' * 12 + f'Interpolated Average Precision = {iAP:.2f}\n')
+
+            # Write query time
+            result_file.write(' ' * 12 + f'Query Time = {query_time:2.2f}s\n')
+
+        # End counting time of evaluating
+        end = time.time()
+
+        # Write footer line
+        result_file.write('\n' + '-' * 19 + 'FINISH EVALUATING' + '-' * 20 + '\n\n')
+
+        # Calculate non - interpolated and interpolated MAP
+        nMAP = np.mean(np.array(nAPs))
+        iMAP = np.mean(np.array(iAPs))
+
+        # Write total number of queries
+        result_file.write(f'Total number of queries = {len(queries_file)}\n')
+
+        # Write non - interpolated and interpolated MAP
+        result_file.write(f'Non - Interpolated Mean Average Precision = {nMAP:.2f}\n')
+        result_file.write(f'Interpolated Mean Average Precision = {iMAP:.2f}\n')
+
+        # Write evaluating time
+        result_file.write(f'Evaluating Time = {(end - start):2.2f}s')
+
+        # Close result file
+        result_file.close()
