@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<h1>Method = {{METHOD}}</h1>
+<h3>Finish retrieval process in {{TIME}}s</h3>
+
+<div class="text-center">
+  <h1>Query</h1>
+  <div class="container">
+    <img src={{QUERY}}>
+  </div>
+
+  <h1>Result</h1>
+  {% for path in PATHS %}
+   <img src={{"../" + path}} class="my-3">
+  {% endfor %}
+</div>
+
+
+{% endblock %}

@@ -1,13 +1,17 @@
 import time
 import cv2 as cv
 import numpy as np
-import feature_extractor as fe
 
 from PIL import Image
 from tqdm import tqdm
 from pathlib import Path
 from pickle import dump, load
 from scipy.spatial.distance import cosine
+
+try:
+    import feature_extractor as fe
+except:
+    import systems.feature_extractor as fe
 
 
 class ImageSearch_System:

@@ -1,7 +1,7 @@
 Flask==2.2.2
 keras==2.11.0
 numpy==1.24.1
-opencv-python==4.7.0.48
+opencv-python==4.7.0.68
 Pillow==9.4.0
 scipy==1.10.0
 tqdm==4.64.1

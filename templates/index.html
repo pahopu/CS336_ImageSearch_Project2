@@ -1,25 +1,32 @@
+{% extends "layout.html" %}
 
-<!doctype html>
-<html>
-    <head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></head>
-    <body>
-        <div class="container">
-            <h1>Simple image search engine</h1>
-            <form method="POST" enctype="multipart/form-data">
-                <input type="file" name="query_img"><br>
-                <input type="submit">
-            </form>
-            <h2>Query:</h2>
-            {% if query_path %}
-            <img src="{{ query_path }}" width="300px">
-            {% endif %}
-            <h2>Results:</h2>
-            {% for score in scores %}
-            <figure style="float: left; margin-right: 20px; margin-bottom: 20px;">
-                <img src="{{ score[1] }}" height="200px">
-                <figcaption>{{ score[0] }}</figcaption>
-            </figure>
-            {% endfor %}
-        </div>
-    </body>
-</html>
+{% block main %}
+
+<div class="container my-5">
+  <form action="/result" method="post" enctype="multipart/form-data">
+    <div class="input-group my-3">
+      <select class="form-select" name="method">
+        <option value="VGG16">VGG16</option>
+        <option value="Xception">Xception</option>
+        <option value="EfficientNetV2L">EfficientNetV2L</option>
+      </select>
+    </div>
+
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" name="crop">
+      <label class="form-check-label" for="flexSwitchCheckDefault">Crop image for query</label>
+    </div>
+
+    <label for="customRange" class="form-label" id="customRangeLabel">Number of images to be returned: <span
+        id="range"></span> </label>
+    <input type="range" class="form-range" min="1" max="200" id="customRange" name="K">
+
+    <input type="file" id="img_file" name="uploaded_img">
+    <img id="uploaded">
+
+    <input type="submit" class="mt-3">
+  </form>
+</div>
+
+
+{% endblock %}
