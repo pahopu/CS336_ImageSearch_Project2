@@ -73,15 +73,20 @@ class ImageSearch_System:
 
             # Browse each image at images folder path with suffix .jpg
             for image_path in tqdm(sorted(self.images_folder_path.glob('*.jpg'))):
-                # Open image at image path
-                image = Image.open(image_path)
+                # Image processing and saving
+                # If error, move to next image
+                try:
+                    # Open image at image path
+                    image = Image.open(image_path)
 
-                # Extract feature from image
-                feature = self.feature_extractor.extract(image)
+                    # Extract feature from image
+                    feature = self.feature_extractor.extract(image)
 
-                # Add feature to features list, image path to image paths list
-                features.append(feature)
-                image_paths.append(image_path)
+                    # Add feature to features list, image path to image paths list
+                    features.append(feature)
+                    image_paths.append(image_path)
+                except:
+                    continue
 
             # Open features file and image paths file to write
             features_file = open(features_file_path, 'wb')
@@ -214,7 +219,7 @@ class ImageSearch_System:
 
         # Create result file path --> save result of evaluating
         # If exist, remove file
-        result_file_path = results_folder_path / f'evaluate_{self.method}.txt'
+        result_file_path = results_folder_path / f'{self.dataset_folder_path.stem}_{self.method}_evaluation.txt'
         if result_file_path.exists():
             result_file_path.unlink()
 
@@ -255,8 +260,14 @@ class ImageSearch_System:
                 # Get content of query file
                 content = query.readline().strip().split()
 
+                # Get string need to replace
+                if self.dataset_folder_path.stem == 'oxbuild':
+                    replace_str = 'oxc1_'
+                elif self.dataset_folder_path.stem == 'paris':
+                    replace_str = ''
+
                 # Get image path and coordinates of bounding box
-                image_name = content[0].replace('oxc1_', '') + '.jpg'
+                image_name = content[0].replace(replace_str, '') + '.jpg'
                 image_path = self.images_folder_path / image_name
                 bounding_box = tuple(float(coor) for coor in content[1:])
 
