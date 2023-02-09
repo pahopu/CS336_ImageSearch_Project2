@@ -2,7 +2,7 @@ import numpy as np
 
 from keras.models import Model
 from keras.utils import img_to_array
-from keras.applications import xception, vgg16, efficientnet_v2, inception_resnet_v2
+from keras.applications import xception, vgg16, efficientnet_v2, inception_resnet_v2, resnet_v2
 
 
 class Xception_FE:
@@ -96,6 +96,30 @@ class InceptionResNetV2_FE:
         array = inception_resnet_v2.preprocess_input(array)  # Subtracting average values for each pixel
 
         feature = self.model.predict(array)[0]  # Predict with shape (1, 1536) --> (1536, )
+        feature = feature / np.linalg.norm(feature)  # Normalize feature
+
+        return feature
+    
+
+class ResNet152V2_FE:
+    def __init__(self) -> None:
+        base_model = resnet_v2.ResNet152V2()  # Create ResNet152V2 model
+
+        # Create model based on ResNet152V2 model above
+        # With input is the same as ResNet152V2 model
+        # And output results from avg_pool layer of ResNet152V2 model
+        # (None, 224, 224, 3) --> (None, 2048)
+        self.model = Model(inputs=base_model.input, outputs=base_model.get_layer('avg_pool').output)
+
+    def extract(self, image) -> np.ndarray:
+        image = image.resize((224, 224))  # Image must be 224 x 224 pixels
+        image = image.convert('RGB')  # Image must be color photo
+
+        array = img_to_array(image)  # Image to np.array with shape (224, 224, 3)
+        array = np.expand_dims(array, axis=0)  # (224, 224, 3) --> (1, 224, 224, 3)
+        array = resnet_v2.preprocess_input(array)  # Subtracting average values for each pixel
+
+        feature = self.model.predict(array)[0]  # Predict with shape (1, 2048) --> (2048, )
         feature = feature / np.linalg.norm(feature)  # Normalize feature
 
         return feature

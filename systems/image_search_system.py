@@ -21,6 +21,8 @@ class ImageSearch_System:
             self.feature_extractor = fe.VGG16_FE()
         elif method == 'Xception':
             self.feature_extractor = fe.Xception_FE()
+        elif method == 'ResNet152V2':
+            self.feature_extractor = fe.ResNet152V2_FE()
         elif method == 'EfficientNetV2L':
             self.feature_extractor = fe.EfficientNetV2L_FE()
         elif method == 'InceptionResNetV2':
