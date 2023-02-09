@@ -23,6 +23,8 @@ class ImageSearch_System:
             self.feature_extractor = fe.Xception_FE()
         elif method == 'EfficientNetV2L':
             self.feature_extractor = fe.EfficientNetV2L_FE()
+        elif method == 'InceptionResNetV2':
+            self.feature_extractor = fe.InceptionResNetV2_FE()
 
         # Save method name
         self.method = method
