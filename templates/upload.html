@@ -1,0 +1,35 @@
+
+{% extends "modal.html" %}
+
+{% block upload %}
+
+
+ <div class="image-container">
+    <div class="row" >
+        <div class="col-8 im-wrapper">
+            <!--  default image where we will set the src via jquery-->
+            <img id="image">
+        </div>
+        <div class="col-4 preview-container">
+
+            <div class="preview-cover">
+                <div class="img-preview" style="height: 9rem; width: 16rem"></div>
+            </div>
+
+        </div>
+    </div>
+     <div class="row side-control-page-2">
+        <button class="col btn btn-primary m-3">16:9</button>
+        <button class="col btn btn-primary m-3">4:3</button>
+        <button class="col btn btn-primary m-3">1:1</button>
+        <button class="col btn btn-primary m-3">2:3</button>
+        <button class="col btn btn-primary m-3">Free</button>
+     </div>
+
+</div>
+
+
+
+
+
+{% endblock %}
