@@ -9,10 +9,36 @@ main {
     min-height: 52vh;
 }
 
-img {
-    width: 70%;
-}
-
 .info {
     width: 70vw;
+}
+
+.modal-dialog{
+    min-width: 75vw;
+}
+
+img #image {
+    display: block;
+    width: 100%;
+}
+
+.modal img{
+    max-width: 100%;
+    max-width: 100%;
+    display: block;
+}
+
+.preview-container {
+    border: 5px solid blue;
+    width: 263px;
+    min-height: 150px;
+    align-items: center;
+    justify-content: center;
+    position:absolute;
+    right: 50px;
+    display: flex;
+}
+
+.preview-cover{
+    overflow: hidden;
 }

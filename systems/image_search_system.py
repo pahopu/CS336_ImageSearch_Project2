@@ -98,18 +98,20 @@ class ImageSearch_System:
         # Open features file and image paths file to read
         features_file = open(features_file_path, 'rb')
         image_paths_file = open(image_paths_file_path, 'rb')
-
+        print(features_file)
         # Load features list and image paths list from the respective opened files
         features = load(features_file)
         image_paths = load(image_paths_file)
 
         if isinstance(query_image, str):  # If query image is a path (string type)
             query_image = Image.open(query_image)  # Open query image at image path
+
         query_feature = self.feature_extractor.extract(query_image)  # Extract query feature from query image
 
         # Create scores list contains cosine similarity between
         # Query feature and each feature in features list
         scores = []
+
         for feature in features:
             # Calculate consine similarity score
             score = 1 - cosine(query_feature, feature)
