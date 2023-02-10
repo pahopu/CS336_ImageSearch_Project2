@@ -2,8 +2,8 @@
 Image Search System for Information Retrieval
 
 # Flask
-Bước 1: Cài các thư viện cần thiết trong file requirement.txt\n
-Bước 2: chạy lệnh `flask run` trong terminal để chạy server\n
+Bước 1: Cài các thư viện cần thiết trong file requirement.txt
+Bước 2: chạy lệnh `flask run` trong terminal để chạy server
 Bước 3: Crtl + C để dừng server\n
 
 
