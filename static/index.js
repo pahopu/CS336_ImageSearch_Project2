@@ -1,8 +1,6 @@
-var inputImage = document.getElementsByClassName('cropped-image')[0]
+var cropBtn = $(".crop-btn")[0]
+var cropImg = $(".cropped-image")[0]
 
-inputImage.addEventListener("change", () => {
-    if (inputImage.src !== ""){
-        inputImage.style.marginTop = "10px";
-        alert("hehehehheh")
-    }
+cropBtn.addEventListener("click", () => {
+    cropImg.style.marginTop = "50px";
 })
