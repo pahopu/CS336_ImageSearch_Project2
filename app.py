@@ -20,13 +20,8 @@ app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 def index():
     removing_files = glob.glob('static/*.jpg')
     for i in removing_files:
-        # try:
-        #     int(i[-5])
-        #     os.remove(i)
-        # except:
-        #     continue
         os.remove(i)
-    return render_template("upload.html")
+    return render_template("upload.html", ALERT=0)
 
 
 
@@ -41,7 +36,10 @@ def return_res():
     K = int(K) if K != "" else 3
 
     method = request.form.get("methods")
-    x = int(request.form.get("x"))
+    x = request.form.get("x")
+    if x == "":
+        return render_template("upload.html", ALERT=1)
+    x = int(x)
     y = int(request.form.get("y"))
     width = int(request.form.get("img_width"))
     height = int(request.form.get("img_height"))
