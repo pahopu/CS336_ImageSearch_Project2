@@ -98,7 +98,7 @@ class ImageSearch_System:
         # Open features file and image paths file to read
         features_file = open(features_file_path, 'rb')
         image_paths_file = open(image_paths_file_path, 'rb')
-        print(features_file)
+
         # Load features list and image paths list from the respective opened files
         features = load(features_file)
         image_paths = load(image_paths_file)

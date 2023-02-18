@@ -8,12 +8,12 @@
 <div class="text-center">
   <h1>Query</h1>
   <div class="container">
-    <img src={{QUERY}}>
+    <img src={{QUERY}} class="res-img">
   </div>
 
   <h1>Result</h1>
   {% for path in PATHS %}
-   <img src={{"../" + path}} class="my-3">
+   <img src={{"../" + path}} class="my-3 res-img">
   {% endfor %}
 </div>
 

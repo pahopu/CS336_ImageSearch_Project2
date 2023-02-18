@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Image Lens</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/static/cropper.css">
+    <link href="/static/styles.css" rel="stylesheet">
+    <link href="/static/style_beautified.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="content_page">
+      <div class="web_name" style="text-align: center">
+        <img class="img_logo" src="/static/logongang-01.png" alt="logo" />
+      </div>
+      <div class="modify">
+        <form action="/result" method="post" enctype="multipart/form-data">
+          <div class="topk_method">
+            <div class="topk">
+              <div class="slidecontainer">
+                <label for="volume" style="margin-bottom: 10px"
+                  >Number of outcomes</label
+                >
+                <div class="range_value">
+                  <input
+                    type="range"
+                    min="8"
+                    max="200"
+                    step="4"
+                    class="slider"
+                    id="myRange"
+                    name="K"
+                    value="32"
+                  />
+                  <div class="value_box">
+                    <span id="demo"></span>
+                  </div>
+                </div>
+              </div>
+              <script>
+                var slider = document.getElementById("myRange");
+                var output = document.getElementById("demo");
+                output.innerHTML = slider.value;
+
+                slider.oninput = function () {
+                  output.innerHTML = this.value;
+                };
+              </script>
+            </div>
+            <div class="method_box">
+              <label for="method" style="margin-bottom: 10px">Method</label>
+              <select name="methods" id="method">
+                <option class="w" value="VGG16">VGG16</option>
+                <option class="w" value="Xception">Xception</option>
+                <option class="w" value="InceptionV3">InceptionV3</option>
+                <option class="w" value="ResNet152V2">ResNet152V2</option>
+                <option class="w" value="EfficientNetV2L">EfficientNetV2L</option>
+                <option class="w" value="InceptionResNetV2">InceptionResNetV2</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="browser_pic">
+            <label for="img_file">Choose file</label>
+            <input type="file" id="img_file" name="uploaded_img" hidden="true" />
+
+            <input type="text" id="x_coor" name="x" hidden="true">
+            <input type="text" id="y_coor" name="y" hidden="true">
+            <input type="text" id="img_height" name="img_height" hidden="true">
+            <input type="text" id="img_width" name="img_width" hidden="true">
+          </div>
+
+          <div class="text-center cropped-image-div">
+            <img src="" class="cropped-image">
+          </div>
+
+          <button type="submit">Search by image</button>
+        </form>
+      </div>
+
+      {% block modal %}{% endblock %}
+
+      <footer>
+        <div class="footer-content">
+          <div class="title">Image Lens</div>
+          <div class="content">
+            <div class="first">
+              <div class="first-title">ABOUT US</div>
+              <div class="first-content">
+                <p>CS336.N11.KHCL</p>
+                <p>Computer Science</p>
+                <p>
+                  University of Information Technology, National University - Ho
+                  Chi Minh City
+                </p>
+              </div>
+            </div>
+            <div class="second">
+              <div class="second-title">CONTACT</div>
+              <div class="second-content">
+                <p>Linh Trung Ward, Thu Duc District, Ho Chi Minh City</p>
+                <p class="email">imagelens.contact@gmail.com</p>
+                <p>(+84) 366 366 000</p>
+              </div>
+            </div>
+            <div class="third">
+              <div class="third-title">OUR MESSAGE</div>
+              <div class="third-content">
+                <p>
+                  To the world, you may be just a lens. But to me, you are the
+                  search tool.
+                </p>
+                <p>© Copyright 2023</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="/static/cropper.js"></script>
+    <script src="/static/main-script.js"></script>
+    <script src="/static/index.js"></script>
+
+  </body>
+</html>

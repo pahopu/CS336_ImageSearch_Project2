@@ -1,0 +1,84 @@
+@import url(//db.onlinewebfonts.com/c/041a069e9ea3324a0b0c767aef875f17?family=Fira+Sans);
+* {
+  font-family: 'Fira Sans';
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 40px;
+  color: black;
+  font-weight: bold;
+}
+.content_page {
+  width: 100%;
+  height: 100%;
+  
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  position: sticky;
+  top: 0;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, white, #b6dbf5, #0c68b3);
+  box-shadow: 0 5px 5px 0 grey;
+}
+.icon {
+  height: 50px;
+  width: 40%;
+  margin: 20px 70px;
+}
+.icon img {
+  height: 100%;
+}
+.above_zone {
+  margin-top:50px;
+  height: 20%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.query_item {
+  width: 30%;
+  margin: 30px;
+  margin-top: 10px;
+}
+.query_item img {
+  width: 100%;
+  height: 100%;
+}
+.result_zone {
+  margin-top: 20px;
+  width: 100%;
+  height: 60%;
+  background-color: #b6dbf5;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+}
+.result_zone_item {
+  border: #b6dbf5;
+  width: 24vw;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+ 
+}
+
+.result_zone_item img {
+  margin: 10px;
+ max-width: 90%;
+ max-height: 90%;
+}
+
+/* img{
+    height: 50px;
+    width: 50px;
+} */

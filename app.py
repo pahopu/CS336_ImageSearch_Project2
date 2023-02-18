@@ -3,6 +3,7 @@ import shutil
 import numpy as np
 import cv2
 import glob
+import time as t
 
 from flask import Flask, render_template, request
 from systems.image_search_system import ImageSearch_System as ISS
@@ -16,20 +17,29 @@ app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 @app.route("/", methods=["GET"])
 def index():
-    return render_template("upload.html", CROP=False)
+    removing_files = glob.glob('static/*.jpg')
+    for i in removing_files:
+        # try:
+        #     int(i[-5])
+        #     os.remove(i)
+        # except:
+        #     continue
+        os.remove(i)
+    return render_template("upload.html")
+
 
 
 @app.route("/result", methods=["GET", "POST"])
 def return_res():
     dst_dir = "static/"
     p = []
-    removing_files = glob.glob('static/*.jpg')
-    for i in removing_files:
-        os.remove(i)
+
     file = request.files.get("uploaded_img")
+
     K = request.form.get("K")
     K = int(K) if K != "" else 3
-    method = request.form.get("method")
+
+    method = request.form.get("methods")
     x = int(request.form.get("x"))
     y = int(request.form.get("y"))
     width = int(request.form.get("img_width"))
@@ -58,4 +68,5 @@ def return_res():
     for i, jpgfile in enumerate(paths):
         shutil.copy(jpgfile, dst_dir + str(i) + ".jpg")
         p.append(dst_dir + str(i) + ".jpg")
-    return render_template("result.html", TIME=round(time, 2), PATHS=p, METHOD=method, QUERY=dst_dir + "query.jpg")
+
+    return render_template("result_beautified.html", TIME=round(time, 2), PATHS=p, METHOD=method, QUERY=dst_dir + "query.jpg")
