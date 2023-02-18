@@ -8,8 +8,8 @@ document.getElementById("customRange").addEventListener("change", (e) => {
 	numImage.innerHTML = value
 })
 
-for (let i = 0; i < dismissBtn.length; i++) {
-    dismissBtn[i].addEventListener("click", () => {
-        $("form")[0].reset()
-    })
-}
+//for (let i = 0; i < dismissBtn.length; i++) {
+//    dismissBtn[i].addEventListener("click", () => {
+//        $("form")[0].reset()
+//    })
+//}
