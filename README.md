@@ -18,7 +18,7 @@
 ## GIỚI THIỆU MÔN HỌC
 * **Tên môn học:** Truy vấn thông tin đa phương tiện - Multimedia Information Retrieval
 * **Mã môn học:** CS336
-* **Mã lớp:** CS336.N1.KHCL
+* **Mã lớp:** CS336.N11.KHCL
 * **Năm học:** HK1 (2022 - 2023)
 * **Giảng viên:** PGS.TS. Ngô Đức Thành
 
