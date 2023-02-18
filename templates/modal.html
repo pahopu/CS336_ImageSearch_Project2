@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 {% extends "index_beautified.html" %}
 
 {% block modal %}
@@ -27,62 +26,5 @@
     </div>
   </div>
 </div>
-=======
-{% extends "index.html" %}
 
-{% block modal %}
-<button type="button" id="modaltriger"  data-bs-toggle="modal" data-bs-target="#exampleModal" hidden="true">
-</button>
-
-<!-- Modal -->
-<div class="modal fade" data-bs-backdrop="false" data-bs-keyboard="false"
-     id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close dm-modal" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-
-       {% block upload %}{% endblock %}
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary dm-modal" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary action-button">Crop</button>
-      </div>
-    </div>
-  </div>
-</div>
->>>>>>> 980a0eea797939db785415859ede40acbc451f7c
-=======
-{% extends "index.html" %}
-
-{% block modal %}
-<button type="button" id="modaltriger"  data-bs-toggle="modal" data-bs-target="#exampleModal" hidden="true">
-</button>
-
-<!-- Modal -->
-<div class="modal fade" data-bs-backdrop="false" data-bs-keyboard="false"
-     id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" role="dialog">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-        <button type="button" class="btn-close dm-modal" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-
-       {% block upload %}{% endblock %}
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary dm-modal" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary action-button">Crop</button>
-      </div>
-    </div>
-  </div>
-</div>
->>>>>>> ff67239562e1965db44a89e3fedd424cc2c12461
 {% endblock %}
