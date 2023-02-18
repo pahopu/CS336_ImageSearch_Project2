@@ -7,6 +7,7 @@ var form_y = document.getElementById("y_coor")
 var form_width = document.getElementById("img_width")
 var form_height = document.getElementById("img_height")
 
+var cropped_image = $(".cropped-image")[0]
 
 $("#img_file")[0].onchange = (e) => {
     $(".im-wrapper")[0].innerHTML =  `<img id="image">`
@@ -30,16 +31,18 @@ $("#img_file")[0].onchange = (e) => {
 
             // download cropped image
             actionButton.onclick = () => {
-//                cropper.getCroppedCanvas().toBlob((blob) => {
-//                    var downloadUrl = window.URL.createObjectURL(blob)
-//                })
+                cropper.getCroppedCanvas().toBlob((blob) => {
+                    var downloadUrl = window.URL.createObjectURL(blob)
+                    cropped_image.src = downloadUrl
+                })
+
                 img_data = cropper.getData(true)
                 form_x.value = img_data.x
                 form_y.value = img_data.y
                 form_height.value = img_data.height
                 form_width.value = img_data.width
 
-                $("#submit-btn")[0].click()
+                $(".dm-modal")[0].click()
             }
         }
     }

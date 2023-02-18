@@ -3,6 +3,7 @@ import shutil
 import numpy as np
 import cv2
 import glob
+import time as t
 
 from flask import Flask, render_template, request
 from systems.image_search_system import ImageSearch_System as ISS
@@ -32,8 +33,10 @@ def return_res():
     p = []
 
     file = request.files.get("uploaded_img")
+
     K = request.form.get("K")
     K = int(K) if K != "" else 3
+
     method = request.form.get("method")
     x = int(request.form.get("x"))
     y = int(request.form.get("y"))
@@ -63,4 +66,5 @@ def return_res():
     for i, jpgfile in enumerate(paths):
         shutil.copy(jpgfile, dst_dir + str(i) + ".jpg")
         p.append(dst_dir + str(i) + ".jpg")
+
     return render_template("result.html", TIME=round(time, 2), PATHS=p, METHOD=method, QUERY=dst_dir + "query.jpg")
