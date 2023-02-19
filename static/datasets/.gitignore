@@ -1,4 +1,5 @@
 # Not commit everything in this directory
-*
+paris
+oxbuild
 # Except .gitignore file
 !.gitignore

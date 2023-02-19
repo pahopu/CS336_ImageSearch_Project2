@@ -35,7 +35,7 @@ class ImageSearch_System:
 
         # Create datasets folder path --> contains dataset
         # If not exist, create a new folder
-        self.dataset_folder_path = Path('datasets') / dataset_name
+        self.dataset_folder_path = Path('static/datasets') / dataset_name
         if not self.dataset_folder_path.exists():
             self.dataset_folder_path.mkdir()
 
