@@ -62,10 +62,10 @@ python3 -m pip install -r requirements.txt
 * Ở đây, chúng ta có thể sử dụng 2 bộ dataset là Oxford Buildings và Paris Buildings để thực hiện truy vấn.
 * Đường dẫn tải dataset và groundtruth sẽ được gắn ở phần chi tiết bên dưới.
 
-### Tải dataset
+### Yêu cầu truy cập
 Trước hết, chúng ta phải điền [form](https://docs.google.com/forms/d/e/1FAIpQLSeIWlksO7O2TxeftwR8vzEZ9ivPj29TuB_Zv_9glda9a1_rLQ/viewform) để được cung cấp **tên đăng nhập** và **mật khẩu** để tải các bộ dataset nói trên.
 
-#### 1. Oxford Buildings
+### 1. Oxford Buildings
 * Ta tải các ảnh trong dataset Oxford Buildings tại [đây](https://thor.robots.ox.ac.uk/datasets/oxford-buildings/oxbuild_images-v1.tgz).
 * Sau đó, giải nén và đặt nó vào trong thư mục ```datasets/oxbuild/images```
 * Cấu trúc như sau:
@@ -96,7 +96,7 @@ CS336_ImageSearch_Project2
                                    |...
 ```
 
-#### 2. Paris Buildings
+### 2. Paris Buildings
 * Đối với bộ dataset này, nó được chia ra làm 2 phần. Ta có thể tải tại đây:
    * [paris_part1](https://thor.robots.ox.ac.uk/datasets/paris-buildings/paris_1-v1.tgz)
    * [paris_part2](https://thor.robots.ox.ac.uk/datasets/paris-buildings/paris_2-v1.tgz)
