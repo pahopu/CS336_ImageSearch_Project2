@@ -35,7 +35,7 @@ def return_res():
     K = request.form.get("K")
     K = int(K) if K != "" else 3
 
-    method = request.form.get("methods")
+    dataset_name = request.form.get("dataset")
     x = request.form.get("x")
     if x == "":
         return render_template("upload.html", ALERT=1)
@@ -49,7 +49,7 @@ def return_res():
         "query.jpg"
     ))
 
-    dataset_name = 'oxbuild'
+    method = "Xception"
     
     img_query = cv2.imread("query.jpg")[y:y+height, x:x+width]
 
