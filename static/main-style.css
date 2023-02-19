@@ -3,44 +3,7 @@
 html{
     height: 100%;
 }
-/*
-body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Maven Pro', sans-serif;
-    background-image: linear-gradient(90deg, #0AE0FF, #9900FB);
-}*/
-/*
-.container{
-    background-color: rgba(255, 255, 255, 0.229);
-    position: relative;
-    width: 76%;
-    height: 570px;
-    border-radius: 4px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    margin-top: 15px;
-    padding-bottom: 40px;
-}*/
-/* image area and preview *//*
-.image-container{
-    padding: 20px;
-    width: 677px;
-    height: calc(100% - 100px);
-    border-right: 1px solid rgba(255, 255, 255, 0.239);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.239);
-}
-.image-workspace{
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.container img{
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
-}*/
+
 .preview-container{
     border: 2px solid rgba(255, 255, 255, 0.239);
     position: absolute;
@@ -60,92 +23,7 @@ body{
     top: 66px;
     left: 70px;
 }
-/* shift button *//*
-.side-controls-shifter{
-    position: absolute;
-    right: 20px;
-    top: 177px;
-    user-select: none;
-}
-.side-controls-shifter svg{
-    display: inline-block;
-    background-color: rgba(255, 255, 255, 0.129);
-    border-bottom: 1px solid transparent;
-    border-radius: 3px;
-    fill: white;
-}
-.side-controls-shifter .active{
-    border: 1px solid rgba(255, 255, 255, 0.4);
-}
-/* side control *//*
-.side-control-page-1,
-.side-control-page-2{
-    position: absolute;
-    right: 20px;
-    bottom: 116px;
-    user-select: none;
-    width: 267px;
-}
-.side-control-page-1 span,
-.side-control-page-2 span{
-    display: block;
-    font-size: 13px;
-}
-.side-control-page-1 li,
-.side-control-page-2 li{
-    list-style: none;
-    height: auto;
-    display: inline-block;
-    margin-left: 40px;
-    margin-top: 6px;
-    position: relative;
-}
-.side-control-page-1 li svg{
-    position: relative;
-    display: inline;
-    border-radius: 50%;
-    padding: 4px;
-    transition-duration: .4s;
-    margin-left: 10px;
-    border: 1px solid transparent;
-    fill: white;
-    background-color: rgba(255, 255, 255, 0.129);
-}
-.side-control-page-1 li svg:active{
-    border: 1px solid rgba(255, 255, 255, 0.4);
-}
-.side-control-page-1 .zoom,
-.side-control-page-1 .rotate,
-.side-control-page-1 .flip,
-.side-control-page-1 .move{
-    padding-left: 20px;
-    margin-bottom: 0px;
-    margin-top: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.239);
-    height: 64px;
-}
-.side-control-page-2{
-    top: 205px;
-}
-.side-control-page-2 .aspect{
-    margin-left: 2px;
-}
-.side-control-page-2 .aspect span{
-    padding-left: 19px;
-}
-.side-control-page-2 li{
-    font-size: 15px;
-    margin-left: 0px;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.129);
-    color: rgb(234, 234, 234);
-    border-radius: 3px;
-    border: 1px solid transparent;
-    transition-duration: .4s;
-}
-.side-control-page-2 li:active{
-    border: 1px solid rgba(255, 255, 255, 0.4);
-}
+
 /* action button */
 .action-button{
     display: inline-block;
@@ -175,4 +53,3 @@ body{
 .action-button .download:active{
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
-

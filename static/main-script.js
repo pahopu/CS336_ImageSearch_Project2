@@ -1,3 +1,4 @@
+
 var actionButton = document.querySelectorAll('.action-button')[0]
 var image_workspaceSpan = document.querySelector('.image-workspace span')
 var preview_containerSpan = document.querySelector('.preview-container span')

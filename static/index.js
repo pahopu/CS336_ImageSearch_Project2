@@ -1,15 +1,17 @@
-var dismissBtn = $('.dm-modal');
+var cropBtn = $(".crop-btn")[0]
+var cropImg = $(".cropped-image")[0]
+var inputStatusP = $(".input-status")[0]
+var searchBtn = $("#search-btn")[0]
+var alertPopup = $("#alert-section")[0]
 
-
-var numImage = document.getElementById("range")
-numImage.innerHTML = document.getElementById("customRange").value
-document.getElementById("customRange").addEventListener("change", (e) => {
-	value = e.target.value
-	numImage.innerHTML = value
+cropBtn.addEventListener("click", () => {
+    cropImg.style.marginTop = "50px";
+    inputStatusP.hidden = true;
 })
 
-//for (let i = 0; i < dismissBtn.length; i++) {
-//    dismissBtn[i].addEventListener("click", () => {
-//        $("form")[0].reset()
-//    })
-//}
+alertNoFile = $("#alert-no-file")[0].value;
+
+if (alertNoFile == 1){
+    alertPopup.innerHTML = "<div class='alert alert-warning alert-dismissible fade show' role='alert'>Please choose image for searching!<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+}
+

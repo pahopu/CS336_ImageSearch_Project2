@@ -116,11 +116,13 @@ class ImageSearch_System:
 
         if isinstance(query_image, str):  # If query image is a path (string type)
             query_image = Image.open(query_image)  # Open query image at image path
+
         query_feature = self.feature_extractor.extract(query_image)  # Extract query feature from query image
 
         # Create scores list contains cosine similarity between
         # Query feature and each feature in features list
         scores = []
+
         for feature in features:
             # Calculate consine similarity score
             score = 1 - cosine(query_feature, feature)

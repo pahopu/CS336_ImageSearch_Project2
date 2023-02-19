@@ -1,0 +1,231 @@
+
+*{
+    font-family: 'Inter', sans-serif; /*SVN Gilroy*/
+    font-size: 13px;
+    margin: 0;
+}
+.content_page{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    height: 70%;
+}
+
+
+.web_name {
+    text-align: center;
+    height: 200px;
+    width: 600px;
+    margin: 20px;
+}
+.img_logo{
+    height: 100%;
+    width: 100%;
+}
+
+label{
+    font-size: 15px;
+}
+.modify {
+    margin: 0px 300px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+}
+.topk_method{
+    display: flex;
+    flex-direction: row;
+}
+.topk{
+    width: 60%;
+}
+.slidecontainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+  }
+.range_value{
+    margin: 0px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+}
+.slider {
+    -webkit-appearance: none;
+    width: 75%;
+    height: 10px;
+    border-radius: 10px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-right: 7px;
+}
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 20px; /* Set a specific slider handle width */
+    height: 20px; /* Slider handle height */
+    background: #0c68b3; /* Green background */
+    border-radius: 50%;
+    cursor: pointer; /* Cursor on hover */
+}
+.slider:hover {
+    opacity: 1;
+}
+ .value_box{
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #b6dbf5;
+    border: solid 2px;
+    height: 100%;
+    width: 40px;
+ }
+ #demo{
+    color: black;
+}
+.method_box {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+    align-items: center;
+}
+#method{
+    border-radius: 7px;
+    border: solid 2px;
+    background-color: #b6dbf5;
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+}
+
+.browser_pic{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.browser_pic label{
+    color: #0c68b3;
+    font-style: bold;
+    cursor: pointer;
+}
+.browser_pic label:hover {
+    text-decoration: underline;
+    font-style: bold;
+}
+#myfile{
+    display: none;
+}
+button{
+    margin-top: 50px;
+    width: 150px;
+    height: 60px;
+    font-size: 15px;
+    border-radius: 15px;
+    background-color: #0c68b3;
+    border: 0;
+    color: white;
+    
+}
+footer{
+    margin-top: 30px;
+    /*display: flex;*/
+    /* flex-direction: row; */
+    /* align-self: flex-end; */
+    width: 100vw;
+    height: 15%;
+    background-color: #233e79;
+    color: white;
+    font-size: 13px;
+    text-align: left;
+    padding: 10px 20px;
+}
+
+/* .title {
+    margin-bottom: 10px;
+    width: 120px;
+    border-bottom: 2px solid;
+    border-color: white;
+}
+.content {
+    margin-bottom:5px;
+} */
+  .third {
+      width: 18%;
+     
+  }
+  .content {
+    display: flex;
+    justify-content: space-between;
+    word-wrap: break-word;
+  }
+  
+
+  .title {
+    font-size: 28px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    margin: 10px 0;
+  }
+  
+  .first-title,
+  .second-title,
+  .third-title {
+    border-bottom: 2px solid rgb(169, 165, 165);
+    font-weight: bolder;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    word-spacing: 3px;
+    font-size: 13px;
+  }
+  .first-content,
+  .second-content,
+  .third-content {
+    flex-direction: column;
+    font-size: 11px;
+    overflow-wrap: break-word;
+  }
+  .first-content p,.second-content p {
+      margin-bottom: 5px;
+  }
+  .email {
+      text-decoration: underline;
+  }
+  .footer-content{
+      padding-left: 5px;
+  }
+  .first-title, .second-title, .third-title{
+      width: 70%;
+      
+  }
+/* .about {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+}
+.project_name {
+    font-size: 16px;
+    justify-self: flex-start;
+    
+}
+
+.contact {
+    width: 30%;
+}
+.message {
+    width: 20%;
+} */

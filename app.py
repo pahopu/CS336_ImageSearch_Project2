@@ -1,3 +1,4 @@
+
 import os
 import shutil
 import numpy as np
@@ -19,12 +20,9 @@ app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 def index():
     removing_files = glob.glob('static/*.jpg')
     for i in removing_files:
-        try:
-            int(i[-5])
-            os.remove(i)
-        except:
-            continue
-    return render_template("upload.html")
+        os.remove(i)
+    return render_template("upload.html", ALERT=0)
+
 
 
 @app.route("/result", methods=["GET", "POST"])
@@ -37,8 +35,11 @@ def return_res():
     K = request.form.get("K")
     K = int(K) if K != "" else 3
 
-    method = request.form.get("method")
-    x = int(request.form.get("x"))
+    method = request.form.get("methods")
+    x = request.form.get("x")
+    if x == "":
+        return render_template("upload.html", ALERT=1)
+    x = int(x)
     y = int(request.form.get("y"))
     width = int(request.form.get("img_width"))
     height = int(request.form.get("img_height"))
@@ -67,4 +68,4 @@ def return_res():
         shutil.copy(jpgfile, dst_dir + str(i) + ".jpg")
         p.append(dst_dir + str(i) + ".jpg")
 
-    return render_template("result.html", TIME=round(time, 2), PATHS=p, METHOD=method, QUERY=dst_dir + "query.jpg")
+    return render_template("result_beautified.html", TIME=round(time, 2), PATHS=p, METHOD=method, QUERY=dst_dir + "query.jpg")
