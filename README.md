@@ -130,7 +130,7 @@ Trước hết, chúng ta phải điền [form](https://docs.google.com/forms/d/
   ```
 
 ## INDEXING VÀ EVALUATING
-* Trong project này, chúng tôi có cài đặt 6 feature extractors để thử nghiệm. Chúng lần lượt là:
+* Trong project này, chúng tôi đã cài đặt 6 feature extractors để thử nghiệm. Chúng lần lượt là:
   * VGG16
   * Xception
   * InceptionV3
@@ -142,6 +142,7 @@ Trước hết, chúng ta phải điền [form](https://docs.google.com/forms/d/
 * Việc điều chỉnh này có thể được thực hiện qua 2 options sau:
   * **-m:** Tên của 1 trong 2 bộ dataset (oxbuild hoặc paris)
   * **-m:** Tên của 1 trong 6 phương pháp trích xuất đặc trưng
+* Các dòng lệnh ví dụ dưới đây sẽ được dùng trên phương pháp **Xception**.
 
 ### 1. Indexing
 * Lập chỉ mục cho bộ dataset Oxford Buildings với câu lệnh dưới đây.
@@ -155,3 +156,12 @@ Trước hết, chúng ta phải điền [form](https://docs.google.com/forms/d/
   ```
 
 ### 2. Evaluating
+* Đánh giá cho bộ dataset Oxford Buildings với câu lệnh dưới đây.
+  ```bash
+  python systems/evaluating.py -d 'oxbuild' -m 'Xception'
+  ```
+
+* Đánh giá cho bộ dataset Paris Buildings với câu lệnh dưới đây.
+  ```bash
+  python systems/evaluating.py -d 'paris' -m 'Xception'
+  ```
