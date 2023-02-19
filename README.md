@@ -40,7 +40,7 @@
 | 1      | 20520278      | Phạm Hoàng Phúc          |Trưởng nhóm|[pahopu](https://github.com/pahopu)              |20520278@gm.uit.edu.vn   |
 | 2      | 20520313      | Nguyễn Hồng Anh Thư      |Thành viên |[thuwpink](https://github.com/thuwpink)          |20520313@gm.uit.edu.vn   |
 | 3      | 20521446      | Huỳnh Nguyễn Vân Khánh   |Thành viên |[hnvkhanh](https://github.com/hnvkhanh)          |20521446@gm.uit.edu.vn   |
-| 4      | 20521546      | Lê Tấn Lộc               |Thành viên |[leetnlok](https://github.com/leetnlok)          |2052154@gm.uit.edu.vn   |
+| 4      | 20521546      | Lê Tấn Lộc               |Thành viên |[leetnlok](https://github.com/leetnlok)          |20521546@gm.uit.edu.vn   |
 
 ## [THÔNG TIN ĐỒ ÁN](#top)
 * **Tên đồ án:** Hệ thống truy vấn thông tin bằng hình ảnh - Content-Based Information Retrieval System
