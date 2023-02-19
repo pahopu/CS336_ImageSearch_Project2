@@ -60,7 +60,7 @@ def return_res():
     res, time = IS.retrieve_image("static/query/query.jpg", K)
 
     paths = list(np.array(res)[:, 0])
-    paths = ["/static/" + str(p) for p in paths]
+    paths = [str(p) for p in paths]
 
 
     return render_template("result_beautified.html", TIME=round(time, 2), PATHS=paths, METHOD=method,
