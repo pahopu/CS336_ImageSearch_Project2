@@ -9,7 +9,7 @@
 
 <h1 align="center"><b>TRUY VẤN THÔNG TIN ĐA PHƯƠNG TIỆN<br>(MULTIMEDIA INFORMATION RETRIEVAL)</b></h>
 
-[![Status](https://img.shields.io/badge/status-working-pink?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2)
+[![Status](https://img.shields.io/badge/status-done-pink?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2)
 [![GitHub contributors](https://img.shields.io/github/contributors/pahopu/CS336_ImageSearch_Project2?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2/graphs/contributors)
 [![Status](https://img.shields.io/badge/language1-python-blue?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2)
 [![Status](https://img.shields.io/badge/language2-html-orange?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2)
