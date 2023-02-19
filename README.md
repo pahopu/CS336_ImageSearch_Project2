@@ -69,32 +69,32 @@ Trước hết, chúng ta phải điền [form](https://docs.google.com/forms/d/
 * Ta tải các ảnh trong dataset Oxford Buildings tại [đây](https://thor.robots.ox.ac.uk/datasets/oxford-buildings/oxbuild_images-v1.tgz).
 * Sau đó, giải nén và đặt nó vào trong thư mục ```datasets/oxbuild/images```
 * Cấu trúc như sau:
-```
-CS336_ImageSearch_Project2
-            └───datasets
-                   └───oxbuild
-                          └───images
-                                │all_souls_000000.jpg
-                                │all_souls_000001.jpg
-                                │all_souls_000002.jpg
-                                |all_souls_000003.jpg
-                                |...
-```
+  ```
+  CS336_ImageSearch_Project2
+              └───datasets
+                     └───oxbuild
+                            └───images
+                                  │all_souls_000000.jpg
+                                  │all_souls_000001.jpg
+                                  │all_souls_000002.jpg
+                                  |all_souls_000003.jpg
+                                  |...
+  ```
 
 * Ta cũng cần phải tải các file groundtruth tại [đây](https://www.robots.ox.ac.uk/~vgg/data/oxbuildings/gt_files_170407.tgz).
 * Giải nén và đặt nó trong thư mục ```datasets/oxbuild/groundtruth```
 * Cấu trúc như sau:
-```
-CS336_ImageSearch_Project2
-            └───datasets
-                   └───oxbuild
-                          └───groundtruth
-                                   │all_souls_1_good.txt
-                                   │all_souls_1_junk.txt
-                                   │all_souls_1_ok.txt
-                                   │all_souls_1_query.txt
-                                   |...
-```
+  ```
+  CS336_ImageSearch_Project2
+              └───datasets
+                     └───oxbuild
+                            └───groundtruth
+                                     │all_souls_1_good.txt
+                                     │all_souls_1_junk.txt
+                                     │all_souls_1_ok.txt
+                                     │all_souls_1_query.txt
+                                     |...
+  ```
 
 ### 2. Paris Buildings
 * Đối với bộ dataset này, nó được chia ra làm 2 phần. Ta có thể tải tại đây:
@@ -102,42 +102,56 @@ CS336_ImageSearch_Project2
    * [paris_part2](https://thor.robots.ox.ac.uk/datasets/paris-buildings/paris_2-v1.tgz)
 * Sau đó, giải nén cả 2 và đặt chúng cùng vào trong thư mục ```datasets/paris/images```
 * Cấu trúc như sau:
-```
-CS336_ImageSearch_Project2
-            └───datasets
-                   └───paris
-                         └───images
-                               │paris_defense_000000.jpg
-                               │paris_defense_000002.jpg
-                               │paris_defense_000004.jpg
-                               |paris_defense_000005.jpg
-                               |...
-```
+  ```
+  CS336_ImageSearch_Project2
+              └───datasets
+                     └───paris
+                           └───images
+                                 │paris_defense_000000.jpg
+                                 │paris_defense_000002.jpg
+                                 │paris_defense_000004.jpg
+                                 |paris_defense_000005.jpg
+                                 |...
+  ```
 
 * Ta cũng cần phải tải các file groundtruth tại [đây](https://www.robots.ox.ac.uk/~vgg/data/parisbuildings/paris_120310.tgz).
 * Giải nén và đặt nó trong thư mục ```datasets/paris/groundtruth```
 * Cấu trúc như sau:
-```
-CS336_ImageSearch_Project2
-            └───datasets
-                   └───paris
-                         └───groundtruth
-                                  │defense_1_good.txt
-                                  │defense_1_junk.txt
-                                  │defense_1_ok.txt
-                                  │defense_1_query.txt
-                                  |...
-```
+  ```
+  CS336_ImageSearch_Project2
+              └───datasets
+                     └───paris
+                           └───groundtruth
+                                    │defense_1_good.txt
+                                    │defense_1_junk.txt
+                                    │defense_1_ok.txt
+                                    │defense_1_query.txt
+                                    |...
+  ```
 
 ## INDEXING VÀ EVALUATING
-Chúng ta sẽ tiến hành các thao tác trên với phương pháp trích xuất đặc trưng Xception.
+* Trong project này, chúng tôi có cài đặt 6 feature extractors để thử nghiệm. Chúng lần lượt là:
+  * VGG16
+  * Xception
+  * InceptionV3
+  * ResNet152V2
+  * EfficientNetV2L
+  * InceptionResNetV2
+* Qua thực nghiệm, chúng tôi thấy rằng phương pháp **Xception** cho kết quả tốt nhất trong thời gian ngắn nhất.
+* Chúng ta có thể **indexing** và **evaluating** cho 2 bộ dataset đã nêu trên cho 6 phương pháp này.
+* Việc điều chỉnh này có thể được thực hiện qua 2 options sau:
+  * **-m:** Tên của 1 trong 2 bộ dataset (oxbuild hoặc paris)
+  * **-m:** Tên của 1 trong 6 phương pháp trích xuất đặc trưng
 
 ### 1. Indexing
 * Lập chỉ mục cho bộ dataset Oxford Buildings với câu lệnh dưới đây.
   ```bash
   python systems/indexing.py -d 'oxbuild' -m 'Xception'
   ```
+
 * Lập chỉ mục cho bộ dataset Paris Buildings với câu lệnh dưới đây.
   ```bash
   python systems/indexing.py -d 'paris' -m 'Xception'
   ```
+
+### 2. Evaluating
