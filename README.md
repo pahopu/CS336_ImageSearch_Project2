@@ -62,10 +62,10 @@ python3 -m pip install -r requirements.txt
 * Ở đây, chúng ta có thể sử dụng 2 bộ dataset là Oxford Buildings và Paris Buildings để thực hiện truy vấn.
 * Đường dẫn tải dataset và groundtruth sẽ được gắn ở phần chi tiết bên dưới.
 
-### 1. Tải dataset
+### Tải dataset
 Trước hết, chúng ta phải điền [form](https://docs.google.com/forms/d/e/1FAIpQLSeIWlksO7O2TxeftwR8vzEZ9ivPj29TuB_Zv_9glda9a1_rLQ/viewform) để được cung cấp **tên đăng nhập** và **mật khẩu** để tải các bộ dataset nói trên.
 
-#### 1.1. Oxford Buildings
+#### 1. Oxford Buildings
 * Ta tải các ảnh trong dataset Oxford Buildings tại [đây](https://thor.robots.ox.ac.uk/datasets/oxford-buildings/oxbuild_images-v1.tgz).
 * Sau đó, giải nén và đặt nó vào trong thư mục ```datasets/oxbuild/images```
 * Cấu trúc như sau:
@@ -94,4 +94,37 @@ CS336_ImageSearch_Project2
                                    │all_souls_1_ok.txt
                                    │all_souls_1_query.txt
                                    |...
+```
+
+#### 2. Paris Buildings
+* Đối với bộ dataset này, nó được chia ra làm 2 phần. Ta có thể tải tại đây:
+   * [paris_part1](https://thor.robots.ox.ac.uk/datasets/paris-buildings/paris_1-v1.tgz)
+   * [paris_part2](https://thor.robots.ox.ac.uk/datasets/paris-buildings/paris_2-v1.tgz)
+* Sau đó, giải nén cả 2 và đặt chúng cùng vào trong thư mục ```datasets/paris/images```
+* Cấu trúc như sau:
+```
+CS336_ImageSearch_Project2
+            └───datasets
+                   └───paris
+                         └───images
+                               │paris_defense_000000.jpg
+                               │paris_defense_000002.jpg
+                               │paris_defense_000004.jpg
+                               |paris_defense_000005.jpg
+                               |...
+```
+
+* Ta cũng cần phải tải các file groundtruth tại [đây](https://www.robots.ox.ac.uk/~vgg/data/parisbuildings/paris_120310.tgz).
+* Giải nén và đặt nó trong thư mục ```datasets/paris/groundtruth```
+* Cấu trúc như sau:
+```
+CS336_ImageSearch_Project2
+            └───datasets
+                   └───paris
+                         └───groundtruth
+                                  │defense_1_good.txt
+                                  │defense_1_junk.txt
+                                  │defense_1_ok.txt
+                                  │defense_1_query.txt
+                                  |...
 ```
