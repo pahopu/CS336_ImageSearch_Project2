@@ -1,0 +1,5 @@
+# Not commit everything in this directory
+*
+
+# Except .gitignore file
+!.gitignore

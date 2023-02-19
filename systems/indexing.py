@@ -1,12 +1,18 @@
+import argparse
+
 from image_search_system import ImageSearch_System as ISS
 
 if __name__ == '__main__':
-    # Name of dataset and method
-    dataset_name = 'oxbuild'
-    method = 'Xception'
+    # Create parser
+    argParser = argparse.ArgumentParser()
+    argParser.add_argument('-d', '--dataset', help='Name of dataset')
+    argParser.add_argument('-m', '--method', help='Name of method')
+
+    # Create arguments
+    args = argParser.parse_args()
 
     # Create Image Search System object
-    IS = ISS(dataset_name, method)
+    IS = ISS(args.dataset, args.method)
 
     # Extract all features
     IS.indexing()
