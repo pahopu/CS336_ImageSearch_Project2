@@ -17,6 +17,7 @@
 * [Thông tin đồ án](#thông-tin-đồ-án)
 * [Các bước cần thiết](#các-bước-cần-thiết)
 * [Chuẩn bị dataset](#chuẩn-bị-dataset)
+* [Indexing và Evaluating](#indexing-và-evaluating)
 
 ## GIỚI THIỆU MÔN HỌC
 * **Tên môn học:** Truy vấn thông tin đa phương tiện - Multimedia Information Retrieval
