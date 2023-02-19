@@ -128,3 +128,16 @@ CS336_ImageSearch_Project2
                                   │defense_1_query.txt
                                   |...
 ```
+
+## INDEXING VÀ EVALUATING
+Chúng ta sẽ tiến hành các thao tác trên với phương pháp trích xuất đặc trưng Xception.
+
+### 1. Indexing
+* Lập chỉ mục cho bộ dataset Oxford Buildings với câu lệnh dưới đây.
+  ```bash
+  python systems/indexing.py -d 'oxbuild' -m 'Xception'
+  ```
+* Lập chỉ mục cho bộ dataset Paris Buildings với câu lệnh dưới đây.
+  ```bash
+  python systems/indexing.py -d 'paris' -m 'Xception'
+  ```
