@@ -9,5 +9,5 @@ if __name__ == '__main__':
     IS = ISS(dataset_name, method)
 
     # Create image path, retrieve and print result
-    image_path = '../test.jpg'
+    image_path = 'static/datasets/oxbuild/images/all_souls_000000.jpg'
     IS.retrieve_image_and_print(image_path)
