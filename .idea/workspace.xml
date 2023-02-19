@@ -4,33 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8348c72f-a15d-4200-aebe-b21f4992912e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/CS336_ImageSearch_Project2.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thupink/chellogo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thupink/chelsea.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thupink/imagelen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thupink/index_beautified.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thupink/land1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thupink/land2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thupink/land3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thupink/lenlogo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thupink/logo-01.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thupink/logongang-01-removebg-preview.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thupink/logongang-01.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thupink/logooo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thupink/pot1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thupink/pot2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thupink/result.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thupink/result_beautified.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thupink/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thupink/xmas.jpg" beforeDir="false" />
-    </list>
+    <list default="true" id="8348c72f-a15d-4200-aebe-b21f4992912e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,7 +37,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CS336_old_code/CS336_ImageSearch_Project2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
