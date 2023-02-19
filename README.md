@@ -31,7 +31,7 @@
 * **Mã môn học:** CS336
 * **Mã lớp:** CS336.N11.KHCL
 * **Năm học:** HK1 (2022 - 2023)
-* **Giảng viên:** PGS.TS. Ngô Đức Thành
+* **Giảng viên:** TS. Ngô Đức Thành
 
 ## [THÔNG TIN VỀ CÁC THÀNH VIÊN NHÓM](#top)
 
