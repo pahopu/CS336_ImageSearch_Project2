@@ -69,7 +69,7 @@ class ImageSearch_System:
         features_file_path = self.methods_folder_path / 'features.pkl'
         image_paths_file_path = self.methods_folder_path / 'images.pkl'
 
-        if not features_file_path.exists() and not image_paths_file_path.exists():
+        if not features_file_path.exists() or not image_paths_file_path.exists():
             # Create features list and image paths list
             features, image_paths = [], []
 
