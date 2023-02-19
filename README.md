@@ -1,3 +1,5 @@
+<a id="top"></a>
+
 <!-- Banner -->
 <p align="center">
   <a href="https://www.uit.edu.vn/" title="Trường Đại học Công nghệ Thông tin" style="border: none;">
@@ -21,7 +23,7 @@
 * [Chạy hệ thống trên web](#chạy-hệ-thống-trên-web)
 * [Demo video](#demo-video)
 
-## GIỚI THIỆU MÔN HỌC
+## [GIỚI THIỆU MÔN HỌC](#top)
 * **Tên môn học:** Truy vấn thông tin đa phương tiện - Multimedia Information Retrieval
 * **Mã môn học:** CS336
 * **Mã lớp:** CS336.N11.KHCL
