@@ -13,7 +13,7 @@
 [![GitHub contributors](https://img.shields.io/github/contributors/pahopu/CS336_ImageSearch_Project2?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2/graphs/contributors)
 [![Status](https://img.shields.io/badge/language-python-green?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2)
 
-## BẢNG MỤC LỤC
+## [BẢNG MỤC LỤC](#top)
 * [Giới thiệu môn học](#giới-thiệu-môn-học)
 * [Thông tin các thành viên](#thông-tin-về-các-thành-viên-nhóm)
 * [Thông tin đồ án](#thông-tin-đồ-án)
@@ -30,7 +30,7 @@
 * **Năm học:** HK1 (2022 - 2023)
 * **Giảng viên:** PGS.TS. Ngô Đức Thành
 
-## THÔNG TIN VỀ CÁC THÀNH VIÊN NHÓM
+## [THÔNG TIN VỀ CÁC THÀNH VIÊN NHÓM](#top)
 
 | STT    | MSSV          | Họ và Tên                |Vai trò    | Github                                          | Email                   |
 | :----: |:-------------:| :-----------------------:|:---------:|:-----------------------------------------------:|:-------------------------:
@@ -39,13 +39,13 @@
 | 3      | 20521446      | Huỳnh Nguyễn Vân Khánh   |Thành viên |[hnvkhanh](https://github.com/hnvkhanh)          |20521446@gm.uit.edu.vn   |
 | 4      | 20521546      | Lê Tấn Lộc               |Thành viên |[leetnlok](https://github.com/leetnlok)          |20521546@gm.uit.edu.vn   |
 
-## THÔNG TIN ĐỒ ÁN
+## [THÔNG TIN ĐỒ ÁN](#top)
 * **Tên đồ án:** Hệ thống truy vấn thông tin bằng hình ảnh - Content-Based Information Retrieval System
 * **Ngôn ngữ lập trình:** Python, HTML, CSS, JavaScript
 * **Input:** 1 bức ảnh (có thể crop)
 * **Output:** 1 tập những bức ảnh được xem là liên quan đến bức ảnh đầu vào
 
-## CÁC BƯỚC CẦN THIẾT
+## [CÁC BƯỚC CẦN THIẾT](#top)
 Sử dụng Git Bash để có thể khởi chạy project.
 
 ### 1. Clone project
@@ -63,7 +63,7 @@ cd CS336_ImageSearch_Project2
 python3 -m pip install -r requirements.txt
 ```
 
-## CHUẨN BỊ DATASET
+## [CHUẨN BỊ DATASET](#top)
 * Ở đây, chúng ta có thể sử dụng 2 bộ dataset là Oxford Buildings và Paris Buildings để thực hiện truy vấn.
 * Đường dẫn tải dataset và groundtruth sẽ được gắn ở phần chi tiết bên dưới.
 
@@ -134,7 +134,7 @@ Trước hết, chúng ta phải điền [form](https://docs.google.com/forms/d/
                                     |...
   ```
 
-## INDEXING VÀ EVALUATING
+## [INDEXING VÀ EVALUATING](#top)
 * Trong project này, chúng tôi đã cài đặt 6 feature extractors để thử nghiệm. Chúng lần lượt là:
   * VGG16
   * Xception
@@ -171,12 +171,12 @@ Trước hết, chúng ta phải điền [form](https://docs.google.com/forms/d/
   python systems/evaluating.py -d 'paris' -m 'Xception'
   ```
 
-## CHẠY HỆ THỐNG TRÊN WEB
+## [CHẠY HỆ THỐNG TRÊN WEB](#top)
 * Web được xây dựng bằng **Flask** với phương pháp **Xception**.
 * Chạy dòng lệnh dưới đây để bắt đầu khởi chạy hệ thống.
   ```bash
   flask run
   ```
   
-## DEMO VIDEO
+## [DEMO VIDEO](#top)
 Bạn có thể xem video demo tại [đây]().
