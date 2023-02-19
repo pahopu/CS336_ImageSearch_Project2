@@ -200,9 +200,3 @@ overflow-wrap: break-word;
 
 }
 
-.cropped-image{
-    max-height: 40vh;
-    max-width: 70vw;
-    padding: 0;
-    margin: 0;
-}

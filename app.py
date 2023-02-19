@@ -1,6 +1,5 @@
 
 import os
-import shutil
 import numpy as np
 import cv2
 import glob
@@ -18,17 +17,15 @@ app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 @app.route("/", methods=["GET"])
 def index():
-    removing_files = glob.glob('static/*.jpg')
+    removing_files = glob.glob('static/query/*.jpg')
     for i in removing_files:
         os.remove(i)
     return render_template("upload.html", ALERT=0)
 
 
-
 @app.route("/result", methods=["GET", "POST"])
 def return_res():
-    dst_dir = "static/"
-    p = []
+    dst_dir = "static/query/"
 
     file = request.files.get("uploaded_img")
 
@@ -53,19 +50,18 @@ def return_res():
     
     img_query = cv2.imread("query.jpg")[y:y+height, x:x+width]
 
-    cv2.imwrite("query.jpg", img_query)
-    shutil.copy("query.jpg", dst_dir + "query.jpg")
+    cv2.imwrite(dst_dir + "query.jpg", img_query)
+
+    os.remove("query.jpg")
 
     IS = ISS(dataset_name, method)
     IS.indexing()
 
-    res, time = IS.retrieve_image("query.jpg", K)
+    res, time = IS.retrieve_image("static/query/query.jpg", K)
 
     paths = list(np.array(res)[:, 0])
-    paths = [str(p) for p in paths]
+    paths = ["/static/" + str(p) for p in paths]
 
-    for i, jpgfile in enumerate(paths):
-        shutil.copy(jpgfile, dst_dir + str(i) + ".jpg")
-        p.append(dst_dir + str(i) + ".jpg")
 
-    return render_template("result_beautified.html", TIME=round(time, 2), PATHS=p, METHOD=method, QUERY=dst_dir + "query.jpg")
+    return render_template("result_beautified.html", TIME=round(time, 2), PATHS=paths, METHOD=method,
+                           QUERY=dst_dir + "query.jpg")

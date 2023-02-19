@@ -7,6 +7,7 @@ var form_x = document.getElementById("x_coor")
 var form_y = document.getElementById("y_coor")
 var form_width = document.getElementById("img_width")
 var form_height = document.getElementById("img_height")
+var image_url = document.getElementById("image-url")
 
 var cropped_image = $(".cropped-image")[0]
 
@@ -35,6 +36,7 @@ $("#img_file")[0].onchange = (e) => {
                 cropper.getCroppedCanvas().toBlob((blob) => {
                     var downloadUrl = window.URL.createObjectURL(blob)
                     cropped_image.src = downloadUrl
+                    image_url.value = downloadUrl
                 })
 
                 img_data = cropper.getData(true)

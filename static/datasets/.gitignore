@@ -1,0 +1,4 @@
+# Not commit everything in this directory
+paris
+# Except .gitignore file
+!.gitignore
