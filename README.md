@@ -45,8 +45,8 @@
 ## [THÔNG TIN ĐỒ ÁN](#top)
 * **Tên đồ án:** Hệ thống truy vấn thông tin bằng hình ảnh - Content-Based Information Retrieval System
 * **Ngôn ngữ lập trình:** Python, HTML, CSS, JavaScript
-* **Input:** 1 bức ảnh (có thể crop)
-* **Output:** 1 tập những bức ảnh được xem là liên quan đến bức ảnh đầu vào
+* **Input:** Một bức ảnh (có thể crop)
+* **Output:** Một tập những bức ảnh được xem là liên quan đến bức ảnh đầu vào
 
 ## [CÁC BƯỚC CẦN THIẾT](#top)
 Sử dụng Git Bash để có thể khởi chạy project.
