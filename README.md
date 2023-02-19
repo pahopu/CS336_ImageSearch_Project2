@@ -9,7 +9,7 @@
 
 <h1 align="center"><b>TRUY VẤN THÔNG TIN ĐA PHƯƠNG TIỆN<br>(MULTIMEDIA INFORMATION RETRIEVAL)</b></h>
 
-[![Status](https://img.shields.io/badge/status-working-pink?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2)
+[![Status](https://img.shields.io/badge/status-done-pink?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2)
 [![GitHub contributors](https://img.shields.io/github/contributors/pahopu/CS336_ImageSearch_Project2?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2/graphs/contributors)
 [![Status](https://img.shields.io/badge/language1-python-blue?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2)
 [![Status](https://img.shields.io/badge/language2-html-orange?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2)
@@ -168,15 +168,48 @@ Trước hết, chúng ta phải điền [form](https://docs.google.com/forms/d/
   ```
 
 ### 2. Evaluating
+#### 2.1. Oxford Buildings Evaluation
 * Đánh giá cho bộ dataset Oxford Buildings với câu lệnh dưới đây.
   ```bash
   python systems/evaluating.py -d 'oxbuild' -m 'Xception'
   ```
+* Kết quả đánh giá sẽ được lưu tại đường dẫn ```static/datasets/oxbuild/results``` với định dạng file là ```oxbuild_Xception_evaluation.txt```.
+* Tương tự với 5 phương pháp còn lại, ta được các file trong cấu trúc như sau:
+  ```
+  CS336_ImageSearch_Project2
+              └───static
+                    └───datasets
+                           └───oxbuild
+                                  └───results
+                                         │oxbuild_EfficientNetV2L_evaluation.txt
+                                         │oxbuild_InceptionResNetV2_evaluation.txt
+                                         │oxbuild_InceptionV3_evaluation.txt
+                                         │oxbuild_ResNet152V2_evaluation.txt
+                                         │oxbuild_VGG16_evaluation.txt
+                                         │oxbuild_Xception_evaluation.txt
+  ```
 
+#### 2.2. Paris Buildings Evaluation
 * Đánh giá cho bộ dataset Paris Buildings với câu lệnh dưới đây.
   ```bash
   python systems/evaluating.py -d 'paris' -m 'Xception'
   ```
+* Kết quả đánh giá sẽ được lưu tại đường dẫn ```static/datasets/paris/results``` với định dạng file là ```paris_Xception_evaluation.txt```.
+* Tương tự với 5 phương pháp còn lại, ta được các file trong cấu trúc như sau:
+  ```
+  CS336_ImageSearch_Project2
+              └───static
+                    └───datasets
+                           └───paris
+                                 └───results
+                                        │paris_EfficientNetV2L_evaluation.txt
+                                        │paris_InceptionResNetV2_evaluation.txt
+                                        │paris_InceptionV3_evaluation.txt
+                                        │paris_ResNet152V2_evaluation.txt
+                                        │paris_VGG16_evaluation.txt
+                                        │paris_Xception_evaluation.txt
+  ```
+
 
 ## [CHẠY HỆ THỐNG TRÊN WEB](#top)
 * Web được xây dựng bằng **Flask** với phương pháp **Xception**.
