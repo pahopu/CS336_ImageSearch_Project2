@@ -154,7 +154,7 @@ Trước hết, chúng ta phải điền [form](https://docs.google.com/forms/d/
 * Việc điều chỉnh có thể được thực hiện qua 2 options sau:
   * **-d:** Tên của 1 trong 2 bộ dataset (oxbuild hoặc paris)
   * **-m:** Tên của 1 trong 6 phương pháp trích xuất đặc trưng
-* Các dòng lệnh ví dụ dưới đây sẽ được dùng trên phương pháp **Xception**.
+* Các dòng lệnh ví dụ dưới đây sẽ được sử dụng dựa trên phương pháp **Xception**.
 
 ### 1. Indexing
 * Lập chỉ mục cho bộ dataset Oxford Buildings với câu lệnh dưới đây.
