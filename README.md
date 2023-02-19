@@ -170,7 +170,7 @@ Trước hết, chúng ta phải điền [form](https://docs.google.com/forms/d/
   ```
 
 ## CHẠY HỆ THỐNG TRÊN WEB
-* Web sẽ được xây dựng bằng Flask với phương pháp **Xception**.
+* Web được xây dựng bằng **Flask** với phương pháp **Xception**.
 * Chạy dòng lệnh dưới đây để bắt đầu khởi chạy hệ thống.
   ```bash
   flask run
