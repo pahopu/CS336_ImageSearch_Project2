@@ -18,6 +18,8 @@
 * [Các bước cần thiết](#các-bước-cần-thiết)
 * [Chuẩn bị dataset](#chuẩn-bị-dataset)
 * [Indexing và Evaluating](#indexing-và-evaluating)
+* [Chạy hệ thống trên web](#chạy-hệ-thống-trên-web)
+* [Demo video](#demo-video)
 
 ## GIỚI THIỆU MÔN HỌC
 * **Tên môn học:** Truy vấn thông tin đa phương tiện - Multimedia Information Retrieval
@@ -166,3 +168,13 @@ Trước hết, chúng ta phải điền [form](https://docs.google.com/forms/d/
   ```bash
   python systems/evaluating.py -d 'paris' -m 'Xception'
   ```
+
+## CHẠY HỆ THỐNG TRÊN WEB
+* Web sẽ được xây dựng bằng Flask với phương pháp **Xception**.
+* Chạy dòng lệnh dưới đây để bắt đầu khởi chạy hệ thống.
+  ```bash
+  flask run
+  ```
+  
+## DEMO VIDEO
+Bạn có thể xem video demo tại [đây]().
