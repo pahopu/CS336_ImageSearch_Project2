@@ -140,7 +140,7 @@ Trước hết, chúng ta phải điền [form](https://docs.google.com/forms/d/
 * Qua thực nghiệm, chúng tôi thấy rằng phương pháp **Xception** cho kết quả tốt nhất trong thời gian ngắn nhất.
 * Chúng ta có thể **indexing** và **evaluating** cho 2 bộ dataset đã nêu trên cho 6 phương pháp này.
 * Việc điều chỉnh này có thể được thực hiện qua 2 options sau:
-  * **-m:** Tên của 1 trong 2 bộ dataset (oxbuild hoặc paris)
+  * **-d:** Tên của 1 trong 2 bộ dataset (oxbuild hoặc paris)
   * **-m:** Tên của 1 trong 6 phương pháp trích xuất đặc trưng
 * Các dòng lệnh ví dụ dưới đây sẽ được dùng trên phương pháp **Xception**.
 
