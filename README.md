@@ -75,66 +75,70 @@ Trước hết, chúng ta phải điền [form](https://docs.google.com/forms/d/
 
 ### 1. Oxford Buildings
 * Ta tải các ảnh trong dataset Oxford Buildings tại [đây](https://thor.robots.ox.ac.uk/datasets/oxford-buildings/oxbuild_images-v1.tgz).
-* Sau đó, giải nén và đặt nó vào trong thư mục ```datasets/oxbuild/images```
+* Sau đó, giải nén và đặt nó vào trong thư mục ```static/datasets/oxbuild/images```
 * Cấu trúc như sau:
   ```
   CS336_ImageSearch_Project2
-              └───datasets
-                     └───oxbuild
-                            └───images
-                                  │all_souls_000000.jpg
-                                  │all_souls_000001.jpg
-                                  │all_souls_000002.jpg
-                                  |all_souls_000003.jpg
-                                  |...
+              └───static
+                    └───datasets
+                           └───oxbuild
+                                  └───images
+                                        │all_souls_000000.jpg
+                                        │all_souls_000001.jpg
+                                        │all_souls_000002.jpg
+                                        |all_souls_000003.jpg
+                                        |...
   ```
 
 * Ta cũng cần phải tải các file groundtruth tại [đây](https://www.robots.ox.ac.uk/~vgg/data/oxbuildings/gt_files_170407.tgz).
-* Giải nén và đặt nó trong thư mục ```datasets/oxbuild/groundtruth```
+* Giải nén và đặt nó trong thư mục ```static/datasets/oxbuild/groundtruth```
 * Cấu trúc như sau:
   ```
   CS336_ImageSearch_Project2
-              └───datasets
-                     └───oxbuild
-                            └───groundtruth
-                                     │all_souls_1_good.txt
-                                     │all_souls_1_junk.txt
-                                     │all_souls_1_ok.txt
-                                     │all_souls_1_query.txt
-                                     |...
+              └───static
+                    └───datasets
+                           └───oxbuild
+                                  └───groundtruth
+                                           │all_souls_1_good.txt
+                                           │all_souls_1_junk.txt
+                                           │all_souls_1_ok.txt
+                                           │all_souls_1_query.txt
+                                           |...
   ```
 
 ### 2. Paris Buildings
 * Đối với bộ dataset này, nó được chia ra làm 2 phần. Ta có thể tải tại đây:
    * [paris_part1](https://thor.robots.ox.ac.uk/datasets/paris-buildings/paris_1-v1.tgz)
    * [paris_part2](https://thor.robots.ox.ac.uk/datasets/paris-buildings/paris_2-v1.tgz)
-* Sau đó, giải nén cả 2 và đặt chúng cùng vào trong thư mục ```datasets/paris/images```
+* Sau đó, giải nén cả 2 và đặt chúng cùng vào trong thư mục ```static/datasets/paris/images```
 * Cấu trúc như sau:
   ```
   CS336_ImageSearch_Project2
-              └───datasets
-                     └───paris
-                           └───images
-                                 │paris_defense_000000.jpg
-                                 │paris_defense_000002.jpg
-                                 │paris_defense_000004.jpg
-                                 |paris_defense_000005.jpg
-                                 |...
+              └───static
+                    └───datasets
+                           └───paris
+                                 └───images
+                                       │paris_defense_000000.jpg
+                                       │paris_defense_000002.jpg
+                                       │paris_defense_000004.jpg
+                                       |paris_defense_000005.jpg
+                                       |...
   ```
 
 * Ta cũng cần phải tải các file groundtruth tại [đây](https://www.robots.ox.ac.uk/~vgg/data/parisbuildings/paris_120310.tgz).
-* Giải nén và đặt nó trong thư mục ```datasets/paris/groundtruth```
+* Giải nén và đặt nó trong thư mục ```static/datasets/paris/groundtruth```
 * Cấu trúc như sau:
   ```
   CS336_ImageSearch_Project2
-              └───datasets
-                     └───paris
-                           └───groundtruth
-                                    │defense_1_good.txt
-                                    │defense_1_junk.txt
-                                    │defense_1_ok.txt
-                                    │defense_1_query.txt
-                                    |...
+              └───static
+                    └───datasets
+                           └───paris
+                                 └───groundtruth
+                                          │defense_1_good.txt
+                                          │defense_1_junk.txt
+                                          │defense_1_ok.txt
+                                          │defense_1_query.txt
+                                          |...
   ```
 
 ## [INDEXING VÀ EVALUATING](#top)
