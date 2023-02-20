@@ -219,4 +219,4 @@ Trước hết, chúng ta phải điền [form](https://docs.google.com/forms/d/
   ```
   
 ## [DEMO VIDEO](#top)
-Bạn có thể xem video demo tại [đây](https://drive.google.com/file/d/1PEYzTG8cKyyJ038J5jCRk0WiGjesT2-0/view?usp=sharing).
+Bạn có thể xem video demo tại [đây](https://drive.google.com/drive/folders/1v_Q-y_l-whS1UIBlAvTw2d1Sa--xKJVw?usp=share_link).
