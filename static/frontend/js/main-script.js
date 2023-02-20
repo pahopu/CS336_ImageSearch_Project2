@@ -32,6 +32,11 @@ $("#img_file")[0].onchange = (e) => {
             aspectRatio[3].onclick = () => cropper.setAspectRatio(0.6666666666666666)
             aspectRatio[4].onclick = () => cropper.setAspectRatio(0) // free
 
+            var contData = cropper.getContainerData(); //Get container data
+            cropper.setCropBoxData({ 
+                height: contData.height, 
+                width: contData.width  })
+
             // download cropped image
             actionButton.onclick = () => {
                 cropper.getCroppedCanvas().toBlob((blob) => {
