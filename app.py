@@ -27,7 +27,7 @@ def index():
 def return_res():
     dst_dir = "static/query/"
 
-    file = request.files.get("uploaded_img")
+    file = request.files.get("real_uploaded_img")
 
     K = request.form.get("K")
     K = int(K) if K != "" else 3
@@ -47,7 +47,7 @@ def return_res():
     ))
 
     method = "Xception"
-    
+
     img_query = cv2.imread("query.jpg")[y:y+height, x:x+width]
 
     cv2.imwrite(dst_dir + "query.jpg", img_query)
@@ -62,6 +62,8 @@ def return_res():
     paths = list(np.array(res)[:, 0])
     paths = [str(p) for p in paths]
 
+    print(paths)
 
     return render_template("result_beautified.html", TIME=round(time, 2), PATHS=paths, METHOD=method,
                            QUERY=dst_dir + "query.jpg")
+

@@ -10,6 +10,7 @@ var form_height = document.getElementById("img_height")
 var image_url = document.getElementById("image-url")
 
 var cropped_image = $(".cropped-image")[0]
+var real_image_uploaded = $("#real_img_file")[0]
 
 $("#img_file")[0].onchange = (e) => {
     $(".im-wrapper")[0].innerHTML =  `<img id="image">`
@@ -45,6 +46,7 @@ $("#img_file")[0].onchange = (e) => {
                 form_height.value = img_data.height
                 form_width.value = img_data.width
 
+                real_image_uploaded.files = e.target.files
                 $(".dm-modal")[0].click()
             }
         }
@@ -53,3 +55,4 @@ $("#img_file")[0].onchange = (e) => {
     var cropper = new Cropper(image, options)
 
 }
+
