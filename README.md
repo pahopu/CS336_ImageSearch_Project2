@@ -63,7 +63,7 @@ Cài đặt các thư viện cần thiết cho project với câu lệnh dưới
 
 ```bash
 cd CS336_ImageSearch_Project2
-python3 -m pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 ## [CHUẨN BỊ DATASET](#top)
