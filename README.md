@@ -9,12 +9,12 @@
 
 <h1 align="center"><b>TRUY VẤN THÔNG TIN ĐA PHƯƠNG TIỆN<br>(MULTIMEDIA INFORMATION RETRIEVAL)</b></h>
 
-[![Status](https://img.shields.io/badge/status-working-pink?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2)
+[![Status](https://img.shields.io/badge/status-done-pink?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2)
 [![GitHub contributors](https://img.shields.io/github/contributors/pahopu/CS336_ImageSearch_Project2?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2/graphs/contributors)
-[![Status](https://img.shields.io/badge/language-python-blue?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2)
-[![Status](https://img.shields.io/badge/language-html-orange?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2)
-[![Status](https://img.shields.io/badge/language-css-purple?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2)
-[![Status](https://img.shields.io/badge/language-javascript-yellow?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2)
+[![Status](https://img.shields.io/badge/language1-python-blue?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2)
+[![Status](https://img.shields.io/badge/language2-html-orange?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2)
+[![Status](https://img.shields.io/badge/language3-css-purple?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2)
+[![Status](https://img.shields.io/badge/language4-javascript-yellow?style=flat-square)](https://github.com/pahopu/CS336_ImageSearch_Project2)
 
 ## [BẢNG MỤC LỤC](#top)
 * [Giới thiệu môn học](#giới-thiệu-môn-học)
@@ -45,8 +45,8 @@
 ## [THÔNG TIN ĐỒ ÁN](#top)
 * **Tên đồ án:** Hệ thống truy vấn thông tin bằng hình ảnh - Content-Based Information Retrieval System
 * **Ngôn ngữ lập trình:** Python, HTML, CSS, JavaScript
-* **Input:** 1 bức ảnh (có thể crop)
-* **Output:** 1 tập những bức ảnh được xem là liên quan đến bức ảnh đầu vào
+* **Input:** Một bức ảnh (có thể crop)
+* **Output:** Một tập những bức ảnh được xem là liên quan đến bức ảnh đầu vào
 
 ## [CÁC BƯỚC CẦN THIẾT](#top)
 Sử dụng Git Bash để có thể khởi chạy project.
@@ -63,7 +63,7 @@ Cài đặt các thư viện cần thiết cho project với câu lệnh dưới
 
 ```bash
 cd CS336_ImageSearch_Project2
-python3 -m pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 ## [CHUẨN BỊ DATASET](#top)
@@ -75,66 +75,70 @@ Trước hết, chúng ta phải điền [form](https://docs.google.com/forms/d/
 
 ### 1. Oxford Buildings
 * Ta tải các ảnh trong dataset Oxford Buildings tại [đây](https://thor.robots.ox.ac.uk/datasets/oxford-buildings/oxbuild_images-v1.tgz).
-* Sau đó, giải nén và đặt nó vào trong thư mục ```datasets/oxbuild/images```
+* Sau đó, giải nén và đặt nó vào trong thư mục ```static/datasets/oxbuild/images```
 * Cấu trúc như sau:
   ```
   CS336_ImageSearch_Project2
-              └───datasets
-                     └───oxbuild
-                            └───images
-                                  │all_souls_000000.jpg
-                                  │all_souls_000001.jpg
-                                  │all_souls_000002.jpg
-                                  |all_souls_000003.jpg
-                                  |...
+              └───static
+                    └───datasets
+                           └───oxbuild
+                                  └───images
+                                        │all_souls_000000.jpg
+                                        │all_souls_000001.jpg
+                                        │all_souls_000002.jpg
+                                        |all_souls_000003.jpg
+                                        |...
   ```
 
 * Ta cũng cần phải tải các file groundtruth tại [đây](https://www.robots.ox.ac.uk/~vgg/data/oxbuildings/gt_files_170407.tgz).
-* Giải nén và đặt nó trong thư mục ```datasets/oxbuild/groundtruth```
+* Giải nén và đặt nó trong thư mục ```static/datasets/oxbuild/groundtruth```
 * Cấu trúc như sau:
   ```
   CS336_ImageSearch_Project2
-              └───datasets
-                     └───oxbuild
-                            └───groundtruth
-                                     │all_souls_1_good.txt
-                                     │all_souls_1_junk.txt
-                                     │all_souls_1_ok.txt
-                                     │all_souls_1_query.txt
-                                     |...
+              └───static
+                    └───datasets
+                           └───oxbuild
+                                  └───groundtruth
+                                           │all_souls_1_good.txt
+                                           │all_souls_1_junk.txt
+                                           │all_souls_1_ok.txt
+                                           │all_souls_1_query.txt
+                                           |...
   ```
 
 ### 2. Paris Buildings
 * Đối với bộ dataset này, nó được chia ra làm 2 phần. Ta có thể tải tại đây:
    * [paris_part1](https://thor.robots.ox.ac.uk/datasets/paris-buildings/paris_1-v1.tgz)
    * [paris_part2](https://thor.robots.ox.ac.uk/datasets/paris-buildings/paris_2-v1.tgz)
-* Sau đó, giải nén cả 2 và đặt chúng cùng vào trong thư mục ```datasets/paris/images```
+* Sau đó, giải nén cả 2 và đặt chúng cùng vào trong thư mục ```static/datasets/paris/images```
 * Cấu trúc như sau:
   ```
   CS336_ImageSearch_Project2
-              └───datasets
-                     └───paris
-                           └───images
-                                 │paris_defense_000000.jpg
-                                 │paris_defense_000002.jpg
-                                 │paris_defense_000004.jpg
-                                 |paris_defense_000005.jpg
-                                 |...
+              └───static
+                    └───datasets
+                           └───paris
+                                 └───images
+                                       │paris_defense_000000.jpg
+                                       │paris_defense_000002.jpg
+                                       │paris_defense_000004.jpg
+                                       |paris_defense_000005.jpg
+                                       |...
   ```
 
 * Ta cũng cần phải tải các file groundtruth tại [đây](https://www.robots.ox.ac.uk/~vgg/data/parisbuildings/paris_120310.tgz).
-* Giải nén và đặt nó trong thư mục ```datasets/paris/groundtruth```
+* Giải nén và đặt nó trong thư mục ```static/datasets/paris/groundtruth```
 * Cấu trúc như sau:
   ```
   CS336_ImageSearch_Project2
-              └───datasets
-                     └───paris
-                           └───groundtruth
-                                    │defense_1_good.txt
-                                    │defense_1_junk.txt
-                                    │defense_1_ok.txt
-                                    │defense_1_query.txt
-                                    |...
+              └───static
+                    └───datasets
+                           └───paris
+                                 └───groundtruth
+                                          │defense_1_good.txt
+                                          │defense_1_junk.txt
+                                          │defense_1_ok.txt
+                                          │defense_1_query.txt
+                                          |...
   ```
 
 ## [INDEXING VÀ EVALUATING](#top)
@@ -150,7 +154,7 @@ Trước hết, chúng ta phải điền [form](https://docs.google.com/forms/d/
 * Việc điều chỉnh có thể được thực hiện qua 2 options sau:
   * **-d:** Tên của 1 trong 2 bộ dataset (oxbuild hoặc paris)
   * **-m:** Tên của 1 trong 6 phương pháp trích xuất đặc trưng
-* Các dòng lệnh ví dụ dưới đây sẽ được dùng trên phương pháp **Xception**.
+* Các dòng lệnh ví dụ dưới đây sẽ được sử dụng dựa trên phương pháp **Xception**.
 
 ### 1. Indexing
 * Lập chỉ mục cho bộ dataset Oxford Buildings với câu lệnh dưới đây.
@@ -164,15 +168,48 @@ Trước hết, chúng ta phải điền [form](https://docs.google.com/forms/d/
   ```
 
 ### 2. Evaluating
+#### 2.1. Oxford Buildings Evaluation
 * Đánh giá cho bộ dataset Oxford Buildings với câu lệnh dưới đây.
   ```bash
   python systems/evaluating.py -d 'oxbuild' -m 'Xception'
   ```
+* Kết quả đánh giá sẽ được lưu tại đường dẫn ```static/datasets/oxbuild/results``` với định dạng file là ```oxbuild_Xception_evaluation.txt```.
+* Tương tự với 5 phương pháp còn lại, ta được các file trong cấu trúc như sau:
+  ```
+  CS336_ImageSearch_Project2
+              └───static
+                    └───datasets
+                           └───oxbuild
+                                  └───results
+                                         │oxbuild_EfficientNetV2L_evaluation.txt
+                                         │oxbuild_InceptionResNetV2_evaluation.txt
+                                         │oxbuild_InceptionV3_evaluation.txt
+                                         │oxbuild_ResNet152V2_evaluation.txt
+                                         │oxbuild_VGG16_evaluation.txt
+                                         │oxbuild_Xception_evaluation.txt
+  ```
 
+#### 2.2. Paris Buildings Evaluation
 * Đánh giá cho bộ dataset Paris Buildings với câu lệnh dưới đây.
   ```bash
   python systems/evaluating.py -d 'paris' -m 'Xception'
   ```
+* Kết quả đánh giá sẽ được lưu tại đường dẫn ```static/datasets/paris/results``` với định dạng file là ```paris_Xception_evaluation.txt```.
+* Tương tự với 5 phương pháp còn lại, ta được các file trong cấu trúc như sau:
+  ```
+  CS336_ImageSearch_Project2
+              └───static
+                    └───datasets
+                           └───paris
+                                 └───results
+                                        │paris_EfficientNetV2L_evaluation.txt
+                                        │paris_InceptionResNetV2_evaluation.txt
+                                        │paris_InceptionV3_evaluation.txt
+                                        │paris_ResNet152V2_evaluation.txt
+                                        │paris_VGG16_evaluation.txt
+                                        │paris_Xception_evaluation.txt
+  ```
+
 
 ## [CHẠY HỆ THỐNG TRÊN WEB](#top)
 * Web được xây dựng bằng **Flask** với phương pháp **Xception**.
@@ -182,4 +219,4 @@ Trước hết, chúng ta phải điền [form](https://docs.google.com/forms/d/
   ```
   
 ## [DEMO VIDEO](#top)
-Bạn có thể xem video demo tại [đây]().
+Bạn có thể xem video demo tại [đây](https://drive.google.com/file/d/1PEYzTG8cKyyJ038J5jCRk0WiGjesT2-0/view?usp=sharing).

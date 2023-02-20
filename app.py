@@ -66,4 +66,3 @@ def return_res():
 
     return render_template("result_beautified.html", TIME=round(time, 2), PATHS=paths, METHOD=method,
                            QUERY=dst_dir + "query.jpg")
-

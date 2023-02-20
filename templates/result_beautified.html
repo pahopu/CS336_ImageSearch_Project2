@@ -1,91 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>Image Lens</title>
-    <link rel="icon" type="image/x-icon" href="/static/source/lenlogo.png">
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/x-icon" href="/static/source/shortcut_logo.png">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link
-      href="//db.onlinewebfonts.com/c/041a069e9ea3324a0b0c767aef875f17?family=Fira+Sans"
-      rel="stylesheet"
-      type="text/css"
+            href="//db.onlinewebfonts.com/c/041a069e9ea3324a0b0c767aef875f17?family=Fira+Sans"
+            rel="stylesheet"
+            type="text/css"
     />
-    <link rel="stylesheet" href="/static/frontend/css/result_beautified.css" />
-  </head>
-  <body>
-    <div class="content_page">
-      <div class="header">
+    <link rel="stylesheet" href="/static/frontend/css/result_beautified.css"/>
+</head>
+<body>
+<div class="content_page">
+    <div class="header">
         <div class="icon">
-          <a href="/">
-            <img src="/static/source/imagelen.png" alt="homelogo" />
-          </a>
+            <a href="/">
+                <img src="/static/source/shortcut_logo.png" alt="homelogo"/>
+            </a>
         </div>
-      </div>
-      <div class="above_zone">
+    </div>
+    <div class="above_zone">
         <p>QUERY</p>
-        <div class="query_item"><img src={{QUERY}} alt="query_img" /></div>
+        <div class="query_item"><img src={{QUERY}} alt="query_img"/></div>
         <p style="margin: 20px">RESULTS</p>
-      </div>
-
-      <div class="result_zone">
-        {% for path in PATHS %}
-          <div class="result_zone_item">
-            <img src={{path}} class="my-3 res-img">
-          </div>
-        {% endfor %}
-      </div>
     </div>
 
-  <footer>
-        <div class="footer-content">
-          <div class="title">Image Lens</div>
-          <div class="content">
+    <div class="result_zone">
+        {% for path in PATHS %}
+        <div class="result_zone_item">
+            <img src={{path}} class="my-3 res-img">
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="title">Image Lens</div>
+        <div class="content">
             <div class="first">
-              <div class="first-title">ABOUT US</div>
-              <div class="first-content">
-                <p>CS336.N11.KHCL</p>
-                <p>Computer Science</p>
-                <p>
-                  University of Information Technology, National University - Ho
-                  Chi Minh City
-                </p>
-              </div>
+                <div class="first-title">ABOUT US</div>
+                <div class="first-content">
+                    <p>CS336.N11.KHCL</p>
+                    <p>Computer Science</p>
+                    <p>
+                        University of Information Technology, National University - Ho
+                        Chi Minh City
+                    </p>
+                </div>
             </div>
             <div class="second">
-              <div class="second-title">CONTACT</div>
-              <div class="second-content">
-                <p>Linh Trung Ward, Thu Duc District, Ho Chi Minh City</p>
-                <p class="email">imagelens.contact@gmail.com</p>
-                <p>(+84) 366 366 000</p>
-              </div>
+                <div class="second-title">CONTACT</div>
+                <div class="second-content">
+                    <p>Linh Trung Ward, Thu Duc District, Ho Chi Minh City</p>
+                    <p class="email">imagelens.contact@gmail.com</p>
+                    <p>(+84) 366 366 000</p>
+                </div>
             </div>
             <div class="third">
-              <div class="third-title">OUR MESSAGE</div>
-              <div class="third-content">
-                <p>
-                  To the world, you may be just a lens. But to me, you are the
-                  search tool.
-                </p>
-                <p>© Copyright 2023</p>
-              </div>
+                <div class="third-title">OUR MESSAGE</div>
+                <div class="third-content">
+                    <p>
+                        To the world, you may be just a lens. But to me, you are the
+                        search tool.
+                    </p>
+                    <p>© Copyright 2023</p>
+                </div>
             </div>
-          </div>
         </div>
-      </footer>
+    </div>
+</footer>
 
-   <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-      crossorigin="anonymous"
-   ></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"
+></script>
 
-  </body>
+</body>
 </html>
